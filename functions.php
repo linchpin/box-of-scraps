@@ -13,6 +13,8 @@ if ( ! defined( 'SCRIPT_DEBUG' ) ) {
 }
 
 require_once 'includes/BoxOfScraps.php';
+require_once 'includes/Linchpin/BOS_Walker_Nav_Menu.php';
+require_once 'includes/Linchpin/Utilities.php';
 
 /**
  * Instantiate our classes, kick the theme in gear.

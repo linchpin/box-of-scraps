@@ -29,8 +29,18 @@ class BoxOfScraps {
 	 * __construct function.
 	 */
 	public function __construct() {
+		add_action( 'after_setup_theme', [ $this, 'register_menus' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'wp_enqueue_scripts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'wp_enqueue_styles' ] );
+	}
+
+	/**
+	 * Register theme menus
+	 */
+	public function register_menus() {
+		register_nav_menus( [
+			'primary_menu' => __( 'Primary Menu', 'boxofscraps' ),
+		] );
 	}
 
 	/**
