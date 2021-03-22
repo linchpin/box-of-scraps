@@ -287,6 +287,15 @@ $size-medium: $size-5;
 $size-large: $size-4;
 
 $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7;
+$headers: (
+	'h1' : $size-1,
+	'h2' : $size-2,
+	'h3' : $size-3,
+	'h4' : $size-4,
+	'h5' : $size-5,
+	'h6' : $size-6,
+	'h7' : $size-7
+);
 
 
 // Controls
@@ -503,7 +512,7 @@ $modal-breakpoint: $tablet;
 
 // 10. Navbar
 
-$navbar-background-color: $scheme-main;
+$navbar-background-color: $primary;
 $navbar-box-shadow-size: 0 2px 0 0;
 $navbar-box-shadow-color: $background;
 $navbar-height: 3.25rem;
@@ -977,7 +986,7 @@ $spacing-values: ("0": 0, "1": 0.25rem, "2": 0.5rem, "3": 0.75rem, "4": 1rem, "5
 
 $footer-background-color: $scheme-main-bis;
 $footer-color: false;
-$footer-padding: 3rem 1.5rem 6rem;
+$footer-padding: 3rem 1.5rem;
 
 
 // 34. Hero

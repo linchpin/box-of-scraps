@@ -40,6 +40,8 @@ class BoxOfScraps {
 	public function register_menus() {
 		register_nav_menus( [
 			'primary_menu' => __( 'Primary Menu', 'boxofscraps' ),
+			'footer_menu' => __( 'Footer Menu', 'boxofscraps' ),
+			'social_menu' => __( 'Social Menu', 'boxofscraps' ),
 		] );
 	}
 

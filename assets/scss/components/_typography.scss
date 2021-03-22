@@ -1,0 +1,12 @@
+/**
+ * 01. Headers
+ */
+
+
+// 01. Headers
+
+@each $tag, $size in $headers {
+	#{$tag} {
+		font-size: $size;
+	}
+}
