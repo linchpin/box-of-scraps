@@ -24,39 +24,12 @@ jobs:
       - name: Output Setup
         id: output_data
         run: |
-          echo "::set-output name=install_name::workflowstest"
-          echo "::set-output name=theme_name::workflow-theme"
-          echo "::set-output name=site_url::workflowstest.wpengine.com"
+          echo "::set-output name=install_name::boxofscraps"
+          echo "::set-output name=theme_name::boxofscraps"
+          echo "::set-output name=site_url::https://boxofscraps.linchpin.site"
           echo "::set-output name=site_image_url::https://linchpin.com/wp-content/uploads/2020/06/cropped-favicon-linchpin-512x512-1-180x180.png"
           echo "::set-output name=slack_channel::C01B0ANUD2B"
           echo "::set-output name=environment::production"
-
-      - name: Create Deployment
-        id: create_deployment
-        uses: octokit/request-action@v2.x
-        with:
-          route: POST /repos/:owner/:repository/deployments
-          owner: ${{ github_respository_owner }}
-          repository: ${{ github.repository }}
-          ref: ${{ steps.output_data.outputs.environment }}
-          environment: ${{ steps.output_data.outputs.environment }}
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-
-      - name: Set Deployment Status to Pending
-        id: start_deployment
-        uses: octokit/request-action@v2.x
-        with:
-          route: POST /repos/:repository/deployments/:deployment/statuses
-          repository: ${{ github.repository }}
-          deployment: ${{ fromJson(steps.create_deployment.outputs.data).id }}
-          environment: ${{ steps.output_data.outputs.environment }}
-          environment_url: ${{ steps.output_data.outputs.site_url }}
-          log_url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          state: pending
-          mediaType: '{"previews": ["flash", "ant-man"]}'
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
   dependency_setup:
     runs-on: ubuntu-latest
