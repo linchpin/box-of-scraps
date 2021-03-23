@@ -1,0 +1,93 @@
+/vendor
+node_modules
+bower_components
+phpunit.xml
+.idea
+wp-rocket-config
+
+# Files that get built during deploy process
+# /themes/carousel-theme/css/carousel.css
+
+# WordPress Specific
+debug.log
+/uploads/
+blogs.dir/
+/upgrade/
+backup-db/*
+/advanced-cache.php
+/wp-cache-config.php
+/cache/
+
+# WPEngine Specific
+.smushit-status
+_wpeprivate
+/object-cache.php
+mysql.sql
+/mu-plugins/force-strong-passwords
+/mu-plugins/wpe-wp-sign-on-plugin
+/mu-plugins/wpengine-common
+/mu-plugins/mu-plugin.php
+/mu-plugins/slt-force-strong-passwords.php
+/mu-plugins/wpe-wp-sign-on-plugin.php
+/mu-plugins/wpengine-security-auditor.php
+
+# Plugins that are NOT installed with composer, the first line ignores all plugins except ones we specify below
+/plugins/*
+!/plugins/gravityforms
+
+
+# Themes that are installed with composer
+/themes/twentytwenty
+
+# Editors
+*.esproj
+*.tmproj
+*.tmproject
+tmtags
+.*.sw[a-z]
+*.un~
+Session.vim
+*.swp
+
+# Mac OSX
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Large/Disallowed file types
+# A CDN should be used for these
+*.hqx
+*.bin
+*.exe
+*.dll
+*.deb
+*.dmg
+*.iso
+*.img
+*.msi
+*.msp
+*.msm
+*.mid
+*.midi
+*.kar
+*.m4a
+*.ra
+*.3gpp
+*.3gp
+*.mp4
+*.mpeg
+*.mpg
+*.mov
+*.webm
+*.flv
+*.m4v
+*.mng
+*.asx
+*.asf
+*.wmv
+*.avi
