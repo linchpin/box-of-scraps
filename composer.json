@@ -1,17 +1,4 @@
 {
-  "name": "linchpin/box-of-scraps",
-  "description": "Base Deployment Scaffold for WordPress projects, this package considers wp-content as the root folder of a project",
-  "version": "1.0.0",
-  "type": "project",
-  "license": "proprietary",
-  "authors": [
-    {
-      "name": "Linchpin",
-      "email": "sayhi@linchpin.com",
-      "homepage": "https://linchpin.com",
-      "role": "Developer"
-    }
-  ],
   "repositories": [
     {
       "type": "composer",
