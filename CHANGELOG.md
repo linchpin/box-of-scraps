@@ -1,5 +1,9 @@
 ### Changelog
 
+## [1.0.1]
+### Update
+- Deploy workflow
+
 ## [1.0.0]
 ### Added
 - Created a default release
