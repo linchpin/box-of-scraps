@@ -1,10 +1,10 @@
 ### Changelog
 
-## v1.0.1
+## 1.0.1
 ### Update
 - Deploy workflow
 
-## v1.0.0
+## 1.0.0
 ### Added
 - Created a default release
 - Changelog body should now be displayed within the release
