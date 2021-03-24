@@ -6,7 +6,9 @@ phpunit.xml
 wp-rocket-config
 
 # Files that get built during deploy process
-# /themes/carousel-theme/css/carousel.css
+/themes/box-of-scraps/css/boxofscraps.css
+/themes/box-of-scraps/js/boxofscraps.js
+/themes/box-of-scraps/js/boxofscraps.js.map
 
 # WordPress Specific
 debug.log
@@ -33,11 +35,10 @@ mysql.sql
 
 # Plugins that are NOT installed with composer, the first line ignores all plugins except ones we specify below
 /plugins/*
-!/plugins/gravityforms
 
 
 # Themes that are installed with composer
-/themes/twentytwenty
+/themes/twentytwentyone
 
 # Editors
 *.esproj

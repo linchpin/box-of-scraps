@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php" : ">=7.1",
+    "php" : ">=7.0",
     "linchpin/gravityforms": "2.4.22",
     "linchpin/wp-rocket": "3.8.3",
     "linchpin/mantle": "1.0.0",
