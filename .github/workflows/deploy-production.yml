@@ -14,9 +14,8 @@ jobs:
       theme_name: ${{ steps.output_data.outputs.theme_name }}
       site_url: ${{ steps.output_data.outputs.site_url }}
       site_image_url: ${{ steps.output_data.outputs.site_image_url }}
+      slack_channel: ${{ steps.output_data.outputs.slack_channel }}
       environment: ${{ steps.output_data.outputs.environment }}
-      branch: ${{ steps.output_data.outputs.branch }}
-      deployment: ${{ steps.deployment_data.outputs.deployment_id }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -29,34 +28,28 @@ jobs:
           echo "::set-output name=theme_name::boxofscraps"
           echo "::set-output name=site_url::https://boxofscraps.linchpin.site"
           echo "::set-output name=site_image_url::https://linchpin.com/wp-content/uploads/2020/06/cropped-favicon-linchpin-512x512-1-180x180.png"
+          echo "::set-output name=slack_channel::C01B0ANUD2B"
           echo "::set-output name=environment::production"
-          echo "::set-output name=branch::main"
 
       - name: Create Deployment
         id: create_deployment
         uses: octokit/request-action@v2.x
         with:
-          route: POST /repos/{repo}/deployments
-          repo: ${{ github.repository }}
-          ref: ${{ steps.output_data.outputs.branch }}
+          route: POST /repos/:owner/:repository/deployments
+          owner: ${{ github_respository_owner }}
+          repository: ${{ github.repository }}
+          ref: ${{ steps.output_data.outputs.environment }}
           environment: ${{ steps.output_data.outputs.environment }}
-          mediaType: '{"previews": ["flash", "ant-man"]}'
-          required_contexts: '[]'
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-
-      - name: Deployment Data
-        id: deployment_data
-        run: |
-          echo "::set-output name=deployment_id::${{ fromJson(steps.create_deployment.outputs.data).id }}"
 
       - name: Set Deployment Status to Pending
         id: start_deployment
         uses: octokit/request-action@v2.x
         with:
-          route: POST /repos/{repo}/deployments/:deployment/statuses
-          repo: ${{ github.repository }}
-          deployment: ${{ steps.deployment_data.outputs.deployment_id }}
+          route: POST /repos/:repository/deployments/:deployment/statuses
+          repository: ${{ github.repository }}
+          deployment: ${{ fromJson(steps.create_deployment.outputs.data).id }}
           environment: ${{ steps.output_data.outputs.environment }}
           environment_url: ${{ steps.output_data.outputs.site_url }}
           log_url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -156,9 +149,9 @@ jobs:
         id: in_progress_deployment
         uses: octokit/request-action@v2.x
         with:
-          route: POST /repos/{repo}/deployments/{deployment}/statuses
-          repo: ${{ github.repository }}
-          deployment: ${{ needs.preflight.outputs.deployment }}
+          route: POST /repos/:repository/deployments/:deployment/statuses
+          repository: ${{ github.repository }}
+          deployment: ${{ fromJson(steps.create_deployment.outputs.data).id }}
           environment: ${{ steps.output_data.outputs.environment }}
           environment_url: ${{ steps.output_data.outputs.site_url }}
           log_url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -186,16 +179,6 @@ jobs:
         id: decompress_theme_artifacts
         run: |
           tar -xzf ${{ needs.preflight.outputs.install_name}}-themes.tar.gz
-
-      - name: Generate releases folder
-        uses: appleboy/ssh-action@master
-        with:
-          host: "${{ needs.preflight.outputs.install_name }}.ssh.wpengine.net"
-          username: "${{ needs.preflight.outputs.install_name }}"
-          key: ${{ secrets.PRIVATE_KEY }}
-          port: "22"
-          script: |
-            mkdir -p ~/sites/${{ needs.preflight.outputs.install_name }}/_wpeprivate/releases;
 
       - name: Generate release folder name
         id: folder
@@ -242,6 +225,7 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: "22"
           script: |
+            mkdir -p ~/sites/${{ needs.preflight.outputs.install_name }}/_wpeprivate/releases;
             cd ~/sites/${{ needs.preflight.outputs.install_name }}/_wpeprivate/releases;
             tar -xf ${{ steps.folder.outputs.folder }}.tar.gz;
             cd ${{ steps.folder.outputs.folder }}/.deployment;
@@ -266,9 +250,9 @@ jobs:
         if: ${{ success() }}
         uses: octokit/request-action@v2.x
         with:
-          route: POST /repos/{repo}/deployments/{deployment}/statuses
-          repo: ${{ github.repository }}
-          deployment: ${{ needs.preflight.outputs.deployment }}
+          route: POST /repos/:repository/deployments/:deployment/statuses
+          repository: ${{ github.repository }}
+          deployment: ${{ fromJson(steps.create_deployment.outputs.data).id }}
           environment: ${{ steps.output_data.outputs.environment }}
           environment_url: ${{ steps.output_data.outputs.site_url }}
           log_url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -281,9 +265,9 @@ jobs:
         if: ${{ failure() }}
         uses: octokit/request-action@v2.x
         with:
-          route: POST /repos/{repo}/deployments/{deployment}/statuses
-          repo: ${{ github.repository }}
-          deployment: ${{ needs.preflight.outputs.deployment }}
+          route: POST /repos/:repository/deployments/:deployment/statuses
+          repository: ${{ github.repository }}
+          deployment: ${{ fromJson(steps.create_deployment.outputs.data).id }}
           environment: ${{ steps.output_data.outputs.environment }}
           environment_url: ${{ steps.output_data.outputs.site_url }}
           log_url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
