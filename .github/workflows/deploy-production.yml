@@ -25,7 +25,7 @@ jobs:
         id: output_data
         run: |
           echo "::set-output name=install_name::boxofscraps"
-          echo "::set-output name=theme_name::boxofscraps"
+          echo "::set-output name=theme_name::box-of-scraps"
           echo "::set-output name=site_url::https://boxofscraps.linchpin.site"
           echo "::set-output name=environment::production"
           echo "::set-output name=branch::main"
