@@ -5,6 +5,7 @@ on:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
+
   preflight:
     name: Preflight Setup
     runs-on: ubuntu-latest
@@ -13,9 +14,8 @@ jobs:
       install_name: ${{ steps.output_data.outputs.install_name }}
       theme_name: ${{ steps.output_data.outputs.theme_name }}
       site_url: ${{ steps.output_data.outputs.site_url }}
-      site_image_url: ${{ steps.output_data.outputs.site_image_url }}
-      slack_channel: ${{ steps.output_data.outputs.slack_channel }}
       environment: ${{ steps.output_data.outputs.environment }}
+      deployment: ${{ steps.deployment_data.outputs.deployment_id }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

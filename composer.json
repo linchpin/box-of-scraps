@@ -9,6 +9,7 @@
       "url": "https://packagist.linchpin.com"
     }
   ],
+  "version": "1.0.4",
   "require": {
     "php" : ">=7.0",
     "linchpin/gravityforms": "2.4.22",
