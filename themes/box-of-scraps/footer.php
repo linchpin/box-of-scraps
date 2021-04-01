@@ -1,3 +1,5 @@
+	</section>
+
 	<footer class="footer">
 		<div class="container">
 			<?php

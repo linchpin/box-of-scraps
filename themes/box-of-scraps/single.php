@@ -27,7 +27,11 @@ do_action( 'truss_content_before' );
 		<div class="columns">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<div class="column">
-					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					<div class="post-heading mb-4">
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+						<?php the_date(); ?>
+					</div>
+
 					<?php the_content(); ?>
 				</div>
 			<?php endwhile; ?>
@@ -36,6 +40,13 @@ do_action( 'truss_content_before' );
 		<?php
 		/** This action is documented in includes/Linchpin/truss-hooks.php */
 		do_action( 'truss_loop_after' );
+		?>
+
+		<?php
+		// If comments are open or there is at least one comment, load up the comment template.
+		if ( comments_open() || get_comments_number() ) {
+			comments_template();
+		}
 		?>
 
 	<?php else : ?>

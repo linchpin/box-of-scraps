@@ -43,4 +43,4 @@
 		do_action( 'truss_header_after' );
 		?>
 
-		<section role="document">
+		<section role="document" class="clear">

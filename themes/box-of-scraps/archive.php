@@ -1,8 +1,6 @@
 <?php
 /**
- * Catch All Template
- *
- * Catch all template file within the Template Hierarchy.
+ * Archive Template
  *
  * @since      1.0.0
  *

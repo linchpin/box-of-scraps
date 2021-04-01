@@ -1,0 +1,18 @@
+/**
+ * 01. Clear
+ */
+
+
+// 01. Clear
+
+.clear {
+	&:before,
+	&:after {
+		content: '';
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
