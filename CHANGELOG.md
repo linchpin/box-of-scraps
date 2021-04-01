@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.45 - 04-01-2021
+
+### Added
+- Added a new release-cleanup.sh that will remove unneeded files when a release is created
+- Added a CHANGELOG.md to the default box-of-scraps files. Including the default keepachangelog formatting
+### Update
+- Updated .distignore to remove some unneeded files from the distribution version on github
+- Updated the release workflow
+- Updated the default package.json
+
+### Update
+- Making sure the deployment ID is passed along in order to show status properly
 ## [1.0.4] - 03-25-2021
 ### Update
 - Making sure the deployment ID is passed along in order to show status properly

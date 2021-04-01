@@ -1,16 +1,15 @@
 .DS_Store
 .git
 .distignore
-.gitignore
 .gitattributes
 .github
 .idea
 .smushit-status
 .Trashes
+.deployment
 /vendor
 .editorconfig
 composer.lock
-composer.json
 /index.php
 /README.md
 bower_components
@@ -23,3 +22,4 @@ gulpfile.js
 phpunit.xml
 scss
 Thumbs.db
+yarn.lock

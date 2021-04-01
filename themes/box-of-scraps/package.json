@@ -1,5 +1,5 @@
 {
-  "name": "linchpin-truss",
+  "name": "@linchpin/box-of-scraps",
   "version": "1.0.0",
   "main": "gulpfile.babel.js",
   "scripts": {
