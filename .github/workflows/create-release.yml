@@ -25,7 +25,7 @@ jobs:
       - name: Clean Build Files/Folders
         run : |
           chmod +x ./.deployment/release-cleanup.sh
-          sh ./.deployment/cleanup.sh;
+          sh ./.deployment/release-cleanup.sh;
 
       - name: Create Sync Zip
         run: |
