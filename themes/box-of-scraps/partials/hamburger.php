@@ -11,9 +11,9 @@
 // Set defaults.
 $args = wp_parse_args(
 	$args,
-	array(
+	[
 		'target' => '',
-	)
+	]
 );
 
 ?>

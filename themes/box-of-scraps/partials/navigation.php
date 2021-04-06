@@ -21,13 +21,13 @@
 
 		<?php
 		wp_nav_menu(
-			array(
+			[
 				'theme_location'  => 'primary_menu',
 				'container_class' => 'navbar-menu',
 				'menu_class'      => 'navbar-end',
 				'items_wrap'      => '<div id="%1$s" class="%2$s">%3$s</div>',
 				'walker'          => new BoxOfScraps\Bulma_Walker_Nav_Menu(),
-			)
+            ]
 		);
 		?>
 	</div>
