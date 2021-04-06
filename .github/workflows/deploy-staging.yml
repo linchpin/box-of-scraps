@@ -24,11 +24,9 @@ jobs:
       - name: Output Setup
         id: output_data
         run: |
-          echo "::set-output name=install_name::workflowstest"
-          echo "::set-output name=theme_name::workflow-theme"
-          echo "::set-output name=site_url::workflowstest.wpengine.com"
-          echo "::set-output name=site_image_url::https://linchpin.com/wp-content/uploads/2020/06/cropped-favicon-linchpin-512x512-1-180x180.png"
-          echo "::set-output name=slack_channel::C01B0ANUD2B"
+          echo "::set-output name=install_name::boxofscrapsstg"
+          echo "::set-output name=theme_name::box-of-scraps"
+          echo "::set-output name=site_url::boxofscraps.linchpin.build"
           echo "::set-output name=environment::production"
 
       # Notify our install that a deployment is beginning (this will also notify slack)

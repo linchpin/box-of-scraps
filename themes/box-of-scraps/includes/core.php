@@ -178,7 +178,7 @@ function admin_styles() {
  */
 function styles() {
 
-	wp_enqueue_style( 'box-of-scraaps-css', get_stylesheet_directory_uri() . '/css/box-of-scraps.css', array(), BOX_OF_SCRAPS_VERSION );
+	wp_enqueue_style( 'box-of-scraps-css', get_stylesheet_directory_uri() . '/css/box-of-scraps.css', array(), BOX_OF_SCRAPS_VERSION );
 
 	wp_enqueue_style(
 		'styles',

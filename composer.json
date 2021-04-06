@@ -1,4 +1,6 @@
 {
+  "name":"linchpin/box-of-scraps",
+  "description":"Base project for the box of scraps, handle the build and deployment",
   "repositories": [
     {
       "type": "composer",
@@ -11,7 +13,7 @@
   ],
   "version": "1.0.4",
   "require": {
-    "php" : ">=7.0",
+    "php" : ">=7.3",
     "linchpin/gravityforms": "2.4.22",
     "linchpin/wp-rocket": "3.8.3",
     "linchpin/mantle": "1.0.0",
