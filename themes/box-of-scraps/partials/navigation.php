@@ -27,7 +27,7 @@
 				'menu_class'      => 'navbar-end',
 				'items_wrap'      => '<div id="%1$s" class="%2$s">%3$s</div>',
 				'walker'          => new BoxOfScraps\Bulma_Walker_Nav_Menu(),
-            ]
+			]
 		);
 		?>
 	</div>
