@@ -16,13 +16,22 @@ jobs:
             - name: Authenticate packagist.linchpin.com
               run: echo '${{ secrets.PACKAGIST_COMPOSER_AUTH_JSON }}' > ./auth.json
 
-            - name: Install
-              run: composer install
+            - name: Install PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                php-version: '7.4'
+                coverage: none
+                tools: cs2pr
 
-            - name: Run phpcbf
-              run: |
-                ./vendor/bin/phpcs --config-set installed_paths ./vendor/wp-coding-standards/
-                ./vendor/bin/phpcbf --standard=WordPress-Core --extensions=php .
+            # Install dependencies and handle caching in one go.
+            # @link https://github.com/marketplace/actions/install-composer-dependencies
+            - name: Install Composer dependencies
+              uses: "ramsey/composer-install@v1"
+
+            # Check the code-style consistency of the PHP files.
+            - name: Fix PHP code style
+              continue-on-error: true
+              run: composer fixcs
 
             - name: Cleanup
               run: |
