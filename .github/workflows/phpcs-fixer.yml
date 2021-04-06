@@ -13,6 +13,9 @@ jobs:
               with:
                   ref: ${{ github.head_ref }}
 
+            - name: Authenticate packagist.linchpin.com
+              run: echo '${{ secrets.PACKAGIST_COMPOSER_AUTH_JSON }}' > ./composer_dependencies/auth.json
+
             - name: Install
               run: composer install
 
