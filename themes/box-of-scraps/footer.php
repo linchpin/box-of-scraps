@@ -8,7 +8,7 @@
 				'container_class' => 'navbar-menu',
 				'menu_class'      => 'navbar-start',
 				'items_wrap'      => '<div id="%1$s" class="%2$s">%3$s</div>',
-				'walker'          => new BOS_Walker_Nav_Menu(),
+				'walker'          => new \BoxOfScraps\Bulma_Walker_Nav_Menu(),
 			] );
 			?>
 
@@ -18,7 +18,7 @@
 				'container_class' => 'navbar-menu',
 				'menu_class'      => 'navbar-start',
 				'items_wrap'      => '<div id="%1$s" class="%2$s">%3$s</div>',
-				'walker'          => new BOS_Walker_Nav_Menu(),
+				'walker'          => new \BoxOfScraps\Bulma_Walker_Nav_Menu(),
 			] );
 			?>
 		</div>

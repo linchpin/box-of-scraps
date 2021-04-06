@@ -27,20 +27,17 @@
 	<div class="inner-wrap off-canvas-content" data-off-canvas-content>
 
 		<?php
-		/** This action is documented in includes/Linchpin/utilities/hooks.php */
-		do_action( 'truss_layout_start' );
+		do_action( 'boxofscraps_layout_start' );
 		?>
 
 		<?php
-		/** This action is documented in includes/Linchpin/utilities/hooks.php */
-		do_action( 'truss_header_before' );
+		do_action( 'boxofscraps_header_before' );
 		?>
 
-		<?php get_template_part( 'partials/navigation' ); ?>
+		<?php get_template_part( 'partials', 'navigation' ); ?>
 
 		<?php
-		/** This action is documented in includes/Linchpin/utilities/hooks.php */
-		do_action( 'truss_header_after' );
+		do_action( 'boxofscraps_header_after' );
 		?>
 
 		<section role="document" class="clear">
