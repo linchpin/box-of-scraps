@@ -13,18 +13,32 @@ jobs:
               with:
                   ref: ${{ github.head_ref }}
 
+            - name: Setup PHP with composer v2
+              uses: shivammathur/setup-php@v2
+              with:
+                php-version: '7.4'
+                tools: phpcbf
+
             - name: Authenticate packagist.linchpin.com
               run: echo '${{ secrets.PACKAGIST_COMPOSER_AUTH_JSON }}' > ./auth.json
 
             - name: Install
               run: composer install
 
-            - name: Run php-cs-fixer
-              run: ./vendor/bin/php-cs-fixer fix
+            - name: Run phpcbf
+              run: |
+                git clone -b master https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git
+                phpcs --config-set installed_paths ./WordPress-Coding-Standards
+                phpcbf --standard=WordPress --extensions=php .
+
+            - name: Cleanup
+              run: |
+                rm ./auth.json
+                rm -rf ./WordPress-Coding-Standards
 
             - uses: stefanzweifel/git-auto-commit-action@v4
               with:
-                  commit_message: Apply php-cs-fixer changes
+                  commit_message: Apply phpcbf changes
 
                   # Optional commit user and author settings
                   commit_user_name: Linchpin Bot # defaults to "GitHub Actions"
