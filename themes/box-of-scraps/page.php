@@ -7,21 +7,18 @@
  * @package    BoxOfScraps
  * @subpackage Templates
  */
-
 ?>
 
 <?php get_header(); ?>
 
 <?php
-/** This action is documented in includes/Linchpin/truss-hooks.php */
-do_action( 'truss_content_before' );
+do_action( 'boxofscraps_content_before' );
 ?>
 
 <div class="container py-4">
 	<?php if ( have_posts() ) : ?>
 		<?php
-		/** This action is documented in includes/Linchpin/truss-hooks.php */
-		do_action( 'truss_loop_before' );
+		do_action( 'boxofscraps_loop_before' );
 		?>
 
 		<div class="columns">
@@ -34,8 +31,7 @@ do_action( 'truss_content_before' );
 		</div>
 
 		<?php
-		/** This action is documented in includes/Linchpin/truss-hooks.php */
-		do_action( 'truss_loop_after' );
+		do_action( 'boxofscraps_loop_after' );
 		?>
 
 	<?php else : ?>
@@ -44,8 +40,8 @@ do_action( 'truss_content_before' );
 </div>
 
 <?php
-/** This action is documented in includes/Linchpin/truss-hooks.php */
-do_action( 'truss_content_after' );
+do_action( 'boxofscraps_content_after' );
 ?>
 
-<?php get_footer();
+<?php
+get_footer();

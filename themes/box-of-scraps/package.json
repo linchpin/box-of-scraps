@@ -4,7 +4,7 @@
   "main": "gulpfile.babel.js",
   "scripts": {
     "start": "gulp",
-    "build": "gulp build --production"
+    "build": "gulp build:production"
   },
   "author": "Linchpin <sayhi@linchpin.com>",
   "license": "GPL",

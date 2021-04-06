@@ -1,6 +1,6 @@
 <?php
 /**
- * Navigation Template
+ * Navigation Template.
  *
  * @since      1.0.0
  *
@@ -13,10 +13,10 @@
     <div class="container">
         <div class="navbar-brand">
             <a class="navbar-item" href="<?php echo esc_url( site_url() ); ?>">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/linchpin-logo.png" />
+                <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/linchpin-logo.png' ); ?>" />
             </a>
 
-            <?php linchpin_hamburger( 'navbarMobile' ); ?>
+            <?php get_template_part( 'partials', 'hamburger', [ 'target' => 'navbarMobile' ] ); ?>
         </div>
 
         <?php
@@ -25,7 +25,7 @@
             'container_class' => 'navbar-menu',
             'menu_class'      => 'navbar-end',
             'items_wrap'      => '<div id="%1$s" class="%2$s">%3$s</div>',
-            'walker'          => new BOS_Walker_Nav_Menu(),
+            'walker'          => new BoxOfScraps\Bulma_Walker_Nav_Menu(),
         ] );
         ?>
     </div>
