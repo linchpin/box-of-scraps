@@ -31,7 +31,7 @@ jobs:
             # Check the code-style consistency of the PHP files.
             - name: Fix PHP code style
               continue-on-error: true
-              run: ./vendor/squizlabs/php_codesniffer/bin/phpcbf -vvv --standard=WordPress --patterns=*/vendor/*,*/node_modules/* --extensions=php --basepath=${{ github.workspace }}
+              run: ./vendor/squizlabs/php_codesniffer/bin/phpcbf -vvv --standard=WordPress --ignore=*/vendor/*,*/node_modules/* --extensions=php --basepath=${{ github.workspace }}
 
             - name: Cleanup
               run: |
