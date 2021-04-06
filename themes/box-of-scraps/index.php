@@ -24,7 +24,10 @@ do_action( 'boxofscraps_content_before' );
 			?>
 
 			<div class="columns is-multiline">
-				<?php while ( have_posts() ) : the_post(); ?>
+				<?php
+				while ( have_posts() ) :
+					the_post();
+					?>
 					<div class="column is-one-quarter">
 						<?php get_template_part( 'partials/loop' ); ?>
 					</div>

@@ -34,7 +34,7 @@
 		do_action( 'boxofscraps_header_before' );
 		?>
 
-		<?php get_template_part( 'partials', 'navigation' ); ?>
+		<?php get_template_part( 'partials/navigation' ); ?>
 
 		<?php
 		do_action( 'boxofscraps_header_after' );

@@ -22,7 +22,10 @@ do_action( 'boxofscraps_content_before' );
 		?>
 
 		<div class="columns">
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php
+			while ( have_posts() ) :
+				the_post();
+				?>
 				<div class="column">
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 					<?php the_content(); ?>

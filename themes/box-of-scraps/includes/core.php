@@ -20,7 +20,7 @@ function setup() {
 		return __NAMESPACE__ . "\\$function";
 	};
 
-	add_action( 'after_setup_theme', $n(  'register_menus' ) );
+	add_action( 'after_setup_theme', $n( 'register_menus' ) );
 
 	add_action( 'after_setup_theme', $n( 'i18n' ) );
 	add_action( 'after_setup_theme', $n( 'theme_setup' ) );
@@ -38,11 +38,13 @@ function setup() {
  * Register theme menus
  */
 function register_menus() {
-	register_nav_menus( [
-		'primary_menu' => esc_html__( 'Primary Menu', 'fluval' ),
-		'footer_menu' => esc_html__( 'Footer Menu', 'fluval' ),
-		'social_menu' => esc_html__( 'Social Menu', 'fluval' ),
-	] );
+	register_nav_menus(
+		array(
+			'primary_menu' => esc_html__( 'Primary Menu', 'fluval' ),
+			'footer_menu'  => esc_html__( 'Footer Menu', 'fluval' ),
+			'social_menu'  => esc_html__( 'Social Menu', 'fluval' ),
+		)
+	);
 }
 
 
@@ -89,7 +91,7 @@ function theme_setup() {
  */
 function scripts() {
 
-	wp_enqueue_script( 'box-of-scraps-js', get_stylesheet_directory_uri() . '/js/box-of-scraps.js', [ 'jquery' ], BOX_OF_SCRAPS_VERSION, true );
+	wp_enqueue_script( 'box-of-scraps-js', get_stylesheet_directory_uri() . '/js/box-of-scraps.js', array( 'jquery' ), BOX_OF_SCRAPS_VERSION, true );
 
 	wp_enqueue_script(
 		'frontend',
@@ -155,7 +157,7 @@ function admin_styles() {
 	wp_enqueue_style(
 		'admin-style',
 		BOX_OF_SCRAPS_URL . '/dist/css/admin-style.css',
-		[],
+		array(),
 		Utility\get_asset_info( 'admin-style', 'version' )
 	);
 
@@ -176,12 +178,12 @@ function admin_styles() {
  */
 function styles() {
 
-	wp_enqueue_style( 'box-of-scraaps-css', get_stylesheet_directory_uri() . '/css/box-of-scraps.css', [], BOX_OF_SCRAPS_VERSION );
+	wp_enqueue_style( 'box-of-scraaps-css', get_stylesheet_directory_uri() . '/css/box-of-scraps.css', array(), BOX_OF_SCRAPS_VERSION );
 
 	wp_enqueue_style(
 		'styles',
 		BOX_OF_SCRAPS_URL . '/dist/css/style.css',
-		[],
+		array(),
 		Utility\get_asset_info( 'style', 'version' )
 	);
 
@@ -189,7 +191,7 @@ function styles() {
 		wp_enqueue_style(
 			'styleguide',
 			BOX_OF_SCRAPS_URL . '/dist/css/kitchensink-style.css',
-			[],
+			array(),
 			Utility\get_asset_info( 'kitchensink-style', 'version' )
 		);
 	}

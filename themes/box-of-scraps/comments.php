@@ -76,13 +76,13 @@ $comment_count = get_comments_number();
 
 	<?php
 	comment_form(
-		array(
+		[
 			'logged_in_as'       => null,
 			'title_reply'        => esc_html__( 'Leave a comment', 'box-of-scraps' ),
 			'title_reply_before' => '<h4 id="reply-title" class="comment-reply-title">',
 			'title_reply_after'  => '</h4>',
 			'comment_field'      => '<div class="field"><label class="label">Comment</label><div class="control"><textarea id="comment" class="textarea" name="comment" aria-required="true"></textarea></div></div>',
-		)
+		]
 	);
 	?>
 </div>

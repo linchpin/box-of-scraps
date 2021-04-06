@@ -4,6 +4,7 @@ bower_components
 phpunit.xml
 .idea
 wp-rocket-config
+auth.json
 
 # Files that get built during deploy process
 /themes/box-of-scraps/css/boxofscraps.css
