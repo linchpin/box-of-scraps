@@ -1,6 +1,6 @@
 <?php
 /**
- * Navigation Template
+ * Navigation Template.
  *
  * @since      1.0.0
  *

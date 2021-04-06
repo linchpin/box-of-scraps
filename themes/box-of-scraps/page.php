@@ -7,7 +7,6 @@
  * @package    BoxOfScraps
  * @subpackage Templates
  */
-
 ?>
 
 <?php get_header(); ?>
@@ -44,4 +43,5 @@ do_action( 'boxofscraps_content_before' );
 do_action( 'boxofscraps_content_after' );
 ?>
 
-<?php get_footer();
+<?php
+get_footer();

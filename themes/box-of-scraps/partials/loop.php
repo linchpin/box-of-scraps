@@ -1,6 +1,11 @@
 <?php
 /**
- * Template partial for displaying content from the loop
+ * Template partial for displaying content from the loop.
+ *
+ * @since      1.0.0
+ *
+ * @package    BoxOfScraps
+ * @subpackage TemplateParts
  */
 ?>
 <div class="loop-post">

@@ -1,6 +1,11 @@
 <?php
 /**
  * Template for displaying the hamburger menu icon
+ *
+ * @since      1.0.0
+ *
+ * @package    BoxOfScraps
+ * @subpackage TemplateParts
  */
 
 // Set defaults.
