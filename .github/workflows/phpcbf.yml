@@ -13,12 +13,6 @@ jobs:
               with:
                   ref: ${{ github.head_ref }}
 
-            - name: Setup PHP with composer v2
-              uses: shivammathur/setup-php@v2
-              with:
-                php-version: '7.4'
-                tools: phpcbf,phpcs
-
             - name: Authenticate packagist.linchpin.com
               run: echo '${{ secrets.PACKAGIST_COMPOSER_AUTH_JSON }}' > ./auth.json
 
@@ -27,14 +21,12 @@ jobs:
 
             - name: Run phpcbf
               run: |
-                git clone -b master https://github.com/WordPress/WordPress-Coding-Standards.git wpcs
-                phpcs --config-set installed_paths ./wpcs
-                phpcbf --standard=WordPress-Core --extensions=php .
+                ./vendor/bin/phpcs --config-set installed_paths ./wpcs
+                ./vendor/bind/phpcbf --standard=WordPress-Core --extensions=php .
 
             - name: Cleanup
               run: |
                 rm ./auth.json
-                rm -rf ./WordPress-Coding-Standards
 
             - uses: stefanzweifel/git-auto-commit-action@v4
               with:
