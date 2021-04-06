@@ -55,7 +55,7 @@
 			"@php ./vendor/squizlabs/php_codesniffer/bin/phpcs"
 		],
 		"fixcs": [
-			"@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf --standard=WordPress --extensions=php ."
+			"@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
 		],
 		"test": [
 			"@php ./vendor/phpunit/phpunit/phpunit --no-coverage"
