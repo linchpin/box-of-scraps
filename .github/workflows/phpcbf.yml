@@ -21,8 +21,8 @@ jobs:
 
             - name: Run phpcbf
               run: |
-                ./vendor/bin/phpcs --config-set installed_paths ./wpcs
-                ./vendor/bind/phpcbf --standard=WordPress-Core --extensions=php .
+                ./vendor/bin/phpcs --config-set installed_paths ./vendor/wp-coding-standards/
+                ./vendor/bin/phpcbf --standard=WordPress-Core --extensions=php .
 
             - name: Cleanup
               run: |
