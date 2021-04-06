@@ -1,11 +1,8 @@
 <?php
 /**
- * Header Template
+ * Header Template.
  *
  * @since      1.0.0
- *
- * @package    BoxOfScraps
- * @subpackage TemplateParts
  */
 ?>
 
@@ -21,23 +18,23 @@
 
 <div id="body-overlay"></div>
 
-<?php do_action( 'wp_body_open' ); ?>
+<?php do_action('wp_body_open'); ?>
 
 <div class="off-canvas-wrapper">
 	<div class="inner-wrap off-canvas-content" data-off-canvas-content>
 
 		<?php
-		do_action( 'boxofscraps_layout_start' );
-		?>
+        do_action('boxofscraps_layout_start');
+        ?>
 
 		<?php
-		do_action( 'boxofscraps_header_before' );
-		?>
+        do_action('boxofscraps_header_before');
+        ?>
 
-		<?php get_template_part( 'partials/navigation' ); ?>
+		<?php get_template_part('partials/navigation'); ?>
 
 		<?php
-		do_action( 'boxofscraps_header_after' );
-		?>
+        do_action('boxofscraps_header_after');
+        ?>
 
 		<section role="document" class="clear">
