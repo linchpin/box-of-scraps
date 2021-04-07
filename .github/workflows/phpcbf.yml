@@ -1,4 +1,4 @@
-name: PHPCSBF Autofixer
+name: WordPress PHPCS Coding Standards Autofixer
 
 on:
     pull_request:
@@ -56,8 +56,3 @@ jobs:
                   automated pr
                 milestone: 1
                 draft: false
-
-            - name: Check outputs
-              run: |
-                echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
-                echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}""
