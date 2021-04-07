@@ -37,12 +37,6 @@ jobs:
               run: |
                 rm ./auth.json
 
-            - name: Get base branch
-              id: vars
-              run: |
-                base_ref=${{ github.head_ref || github.ref }}
-                echo ::set-output name=base_branch::${base_ref#refs/*/}
-
             - name: Create Pull Request
               id: cpr
               uses: peter-evans/create-pull-request@v3
@@ -52,7 +46,6 @@ jobs:
                 committer: Linchpin Bot <dev@linchpin.com>
                 author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
                 signoff: false
-                base: ${{ steps.vars.outputs.base_branch }}
                 branch: ${{ github.event.pull_request.head.ref }}-phpcbf
                 delete-branch: true
                 title: 'Auto Fix Formatting'
