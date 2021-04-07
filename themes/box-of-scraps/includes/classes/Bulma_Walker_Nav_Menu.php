@@ -27,12 +27,12 @@ class Bulma_Walker_Nav_Menu extends \Walker_Nav_Menu {
 
 		$args = wp_parse_args(
 			$args,
-			array(
+			[
 				'before'      => '',
 				'link_before' => '',
 				'after'       => '',
 				'link_after'  => '',
-			)
+			]
 		);
 
 		if ( ! is_object( $args ) ) {
@@ -75,14 +75,14 @@ class Bulma_Walker_Nav_Menu extends \Walker_Nav_Menu {
 		$id          = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
 		if ( is_array( $item->classes ) ) {
-			if ( in_array( 'button', $item->classes ) ) {
+			if ( in_array( 'button', $item->classes, true ) ) {
 				$output .= $indent . '<div class="navbar-item"><div class="buttons">';
-			} elseif ( in_array( 'menu-item-has-children', $item->classes ) ) {
+			} elseif ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
 				$output .= $indent . '<div class="navbar-item has-dropdown is-hoverable">';
 			}
 		}
 
-		$atts           = array();
+		$atts           = [];
 		$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
 		$atts['target'] = ! empty( $item->target ) ? $item->target : '';
 
@@ -139,9 +139,9 @@ class Bulma_Walker_Nav_Menu extends \Walker_Nav_Menu {
 		}
 
 		if ( is_array( $item->classes ) ) {
-			if ( in_array( 'button', $item->classes ) ) {
+			if ( in_array( 'button', $item->classes, true ) ) {
 				$output .= "</div></div>{$n}";
-			} elseif ( in_array( 'menu-item-has-children', $item->classes ) ) {
+			} elseif ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
 				$output .= "</div>{$n}";
 			} else {
 				$output .= "{$n}";
@@ -173,9 +173,8 @@ class Bulma_Walker_Nav_Menu extends \Walker_Nav_Menu {
 
 		$indent = str_repeat( $t, $depth );
 
-		// Default class.
-		$classes = array( 'navbar-dropdown' );
-
+		// Default css class.
+		$classes     = [ 'navbar-dropdown' ];
 		$class_names = implode( ' ', apply_filters( 'nav_menu_submenu_css_class', $classes, $args, $depth ) );
 		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
