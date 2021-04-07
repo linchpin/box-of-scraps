@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.45 - 04-01-2021
+## [1.0.7] - 04-01-2021
 
 ### Added
 - Added a new release-cleanup.sh that will remove unneeded files when a release is created
@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Update
 - Making sure the deployment ID is passed along in order to show status properly
-## [1.0.4] - 03-25-2021
+## [1.0.5] - 03-25-2021
 ### Update
 - Making sure the deployment ID is passed along in order to show status properly
 

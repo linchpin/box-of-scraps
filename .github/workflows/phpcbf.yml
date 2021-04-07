@@ -35,10 +35,14 @@ jobs:
 
             - name: Cleanup
               run: |
-                rm ./auth.json
+                rm ./auth.json  
 
             - uses: stefanzweifel/git-auto-commit-action@v4
               with:
+                  # Optional branch name where commit should be pushed to
+                  # Defaults to the current branch
+                  branch: ${{ github.event.pull_request.head.ref }}-autofix
+
                   commit_message: Apply phpcbf changes
 
                   # Optional commit user and author settings

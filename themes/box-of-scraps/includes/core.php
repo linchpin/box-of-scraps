@@ -248,5 +248,5 @@ function script_loader_tag( $tag, $handle ) {
  * @return void
  */
 function add_manifest() {
-	echo "<link rel='manifest' href='" . esc_url( BOX_OF_SCRAPS_URL . '/manifest.json' ) . "' />";
+	echo '<link rel="manifest" href="' . esc_url( BOX_OF_SCRAPS_URL . '/manifest.json' ) . '" />';
 }
