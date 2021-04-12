@@ -13,12 +13,12 @@ define( 'BOX_OF_SCRAPS_INC', BOX_OF_SCRAPS_PATH . '/includes/' );
 define( 'BOX_OF_SCRAPS_DEBUG', false );
 
 if ( ! defined( 'SCRIPT_DEBUG' ) ) {
-	define( 'SCRIPT_DEBUG', true ); // Enable script debug by default. Should be disabled in production
+	define( 'SCRIPT_DEBUG', true ); // Enable script debug by default. Should be disabled in production.
 }
 
 require_once BOX_OF_SCRAPS_INC . 'utilities.php';
 require_once BOX_OF_SCRAPS_INC . 'core.php';
-require_once BOX_OF_SCRAPS_INC . 'classes/Bulma_Walker_Nav_Menu.php'; // Custom Walker
+require_once BOX_OF_SCRAPS_INC . 'classes/Bulma_Walker_Nav_Menu.php'; // Custom Walker.
 
 // Require Composer autoloader if it exists.
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
@@ -34,7 +34,7 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 	}
 }
 
-// Kick everything off when plugins are loaded
+// Kick everything off when plugins are loaded.
 try {
 	BoxOfScraps\Core\setup();
 } catch ( Exception $e ) {

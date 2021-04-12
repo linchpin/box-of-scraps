@@ -16,7 +16,13 @@
 
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
-	<exclude-pattern>.github/</exclude-pattern>
-	<exclude-pattern>.deployment/</exclude-pattern>
-	<include-pattern>themes/box-of-scraps</include-pattern>
+	<exclude-pattern>.github/*</exclude-pattern>
+	<exclude-pattern>.deployment/*</exclude-pattern>
+	<exclude-pattern>plugins/*</exclude-pattern>
+	<exclude-pattern type="relative">^plugins/(?!box-of-scraps/).+</exclude-pattern>
+<!-- The following lines are specific to plugin scanning
+	 Uncomment these lines if needed in your project
+	<exclude-pattern>plugins/box-of-scraps/vendor/*</exclude-pattern>
+	<include-pattern>plugins/box-of-scraps/*</include-pattern> -->
+	<exclude-pattern>themes/(?!box-of-scraps/)*</exclude-pattern>
 </ruleset>
