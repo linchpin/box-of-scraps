@@ -40,7 +40,7 @@
 
 								<?php
 								if ( boxofscraps_categorized_blog() ) : // Only show the widget if site has multiple categories.
-								?>
+									?>
 									<div class="widget widget_categories">
 										<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'box-of-scraps' ); ?></h2>
 										<ul>
@@ -52,7 +52,7 @@
 													'show_count' => 1,
 													'title_li'   => '',
 													'number'     => 10,
-                                            ]
+												]
 											);
 											?>
 										</ul>
