@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.8] - 04-10-2021
+
+### Added
+- Added kitchen sink template (still needs work)
+
+### Updated
+- Updated some code formatting
+
 ## [1.0.6] - 04-05-2021
 
 ### Added

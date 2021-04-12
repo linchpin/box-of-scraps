@@ -21,13 +21,14 @@ function setup() {
 	};
 
 	add_action( 'after_setup_theme', $n( 'register_menus' ) );
-
 	add_action( 'after_setup_theme', $n( 'i18n' ) );
 	add_action( 'after_setup_theme', $n( 'theme_setup' ) );
+
 	add_action( 'wp_enqueue_scripts', $n( 'scripts' ) );
 	add_action( 'admin_enqueue_scripts', $n( 'admin_styles' ) );
 	add_action( 'admin_enqueue_scripts', $n( 'admin_scripts' ) );
 	add_action( 'wp_enqueue_scripts', $n( 'styles' ) );
+
 	add_action( 'wp_head', $n( 'js_detection' ), 0 );
 	add_action( 'wp_head', $n( 'add_manifest' ), 10 );
 
@@ -39,11 +40,11 @@ function setup() {
  */
 function register_menus() {
 	register_nav_menus(
-		array(
+		[
 			'primary_menu' => esc_html__( 'Primary Menu', 'fluval' ),
 			'footer_menu'  => esc_html__( 'Footer Menu', 'fluval' ),
 			'social_menu'  => esc_html__( 'Social Menu', 'fluval' ),
-		)
+		]
 	);
 }
 
@@ -68,19 +69,22 @@ function theme_setup() {
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'responsive-embeds' );
 	add_theme_support(
 		'html5',
-		array(
+		[
 			'search-form',
 			'gallery',
-		)
+		]
 	);
 
-	// This theme uses wp_nav_menu() in three locations.
-	register_nav_menus(
-		array(
-			'primary' => esc_html__( 'Primary Menu', 'box-of-scraps' ),
-		)
+	// @todo need to see what our avg size is for logos
+	add_theme_support(
+		'custom-logo',
+		[
+			'height' => 480,
+			'width'  => 720,
+		]
 	);
 }
 

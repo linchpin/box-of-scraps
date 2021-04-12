@@ -31,7 +31,7 @@ jobs:
             # Check the code-style consistency of the PHP files.
             - name: Fix PHP code style
               continue-on-error: true
-              run: ./vendor/squizlabs/php_codesniffer/bin/phpcbf -p --standard=${{ github.workspace }}/phpcs.xml --ignore=${{ github.workspace }}/vendor/,${{ github.workspace }}/themes/box-of-scraps/node_modules/ --extensions=php ${{ github.workspace }}/themes/box-of-scraps/
+              run: ./vendor/squizlabs/php_codesniffer/bin/phpcbf -p --standard=${{ github.workspace }}/phpcs.xml --extensions=php ${{ github.workspace }}/
 
             - name: Cleanup
               run: |
