@@ -16,7 +16,7 @@
 	<?php
 	while ( have_posts() ) :
 		the_post();
-	?>
+		?>
 		<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 			<header>
 				<h1 class="entry-title"><?php the_title(); ?></h1>
@@ -624,24 +624,24 @@
 			<h4 id="icon-bar">Icon bar</h4>
 			<div class="icon-bar five-up" role="navigation">
 			  <a class="item" role="button" tabindex="0" aria-label="home">
-			    <i class="fi-home"></i>
-			    <label id="home">Home</label>
+				<i class="fi-home"></i>
+				<label id="home">Home</label>
 			  </a>
 			  <a class="item" role="button" tabindex="0" aria-label="Bookmark">
-			    <i class="fi-bookmark"></i>
-			    <label id="bookmark">Bookmark</label>
+				<i class="fi-bookmark"></i>
+				<label id="bookmark">Bookmark</label>
 			  </a>
 			  <a class="item" role="button" tabindex="0" aria-label="Information">
-			    <i class="fi-info"></i>
-			    <label id="information">Information</label>
+				<i class="fi-info"></i>
+				<label id="information">Information</label>
 			  </a>
 			  <a class="item" role="button" tabindex="0" aria-label="Mail">
-			    <i class="fi-mail"></i>
-			    <label id="mail">Mail</label>
+				<i class="fi-mail"></i>
+				<label id="mail">Mail</label>
 			  </a>
 			  <a class="item" role="button" tabindex="0" aria-label="Like">
-			    <i class="fi-like"></i>
-			    <label id="like">Like</label>
+				<i class="fi-like"></i>
+				<label id="like">Like</label>
 			  </a>
 			</div>
 
@@ -745,7 +745,14 @@
 			</p>
 
 			<footer>
-				<?php wp_link_pages( array( 'before' => '<nav id="page-nav"><p>' . esc_html__( 'Pages:', '<%= text_domain %>' ), 'after' => '</p></nav>' ) ); ?>
+				<?php
+				wp_link_pages(
+					array(
+						'before' => '<nav id="page-nav"><p>' . esc_html__( 'Pages:', '<%= text_domain %>' ),
+						'after'  => '</p></nav>',
+					)
+				);
+				?>
 				<p><?php the_tags(); ?></p>
 			</footer>
 
