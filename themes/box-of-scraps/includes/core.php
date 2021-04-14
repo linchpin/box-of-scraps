@@ -73,8 +73,29 @@ function theme_setup() {
 	add_theme_support(
 		'html5',
 		[
+			'align-wide',
+			'core-block-patterns',
+			'custom-background',
+			'custom-header',
+			'custom-line-height',
+			'custom-logo',
+			'custom-spacing',
+			'custom-units',
+			'automatic-feed-links',
+			'editor-color-palette',
+			'editor-gradient-presets',
+			'editor-font-sizes',
+			'editor-styles',
+			'featured-content',
 			'search-form',
 			'gallery',
+			'menus',
+			'post-thumbnails',
+			'comment-list',
+			'comment-form',
+			'caption',
+			'style',
+			'script',
 		]
 	);
 
@@ -82,8 +103,11 @@ function theme_setup() {
 	add_theme_support(
 		'custom-logo',
 		[
-			'height' => 480,
-			'width'  => 720,
+			'height'      => 100,
+			'width'       => 400,
+			'flex-height' => true,
+			'flex-width'  => true,
+			'header-text' => [ 'site-title', 'site-description' ],
 		]
 	);
 }
