@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.10] - 04-18-2021
+
+### Added
+- Addded a new hook to disable FLOC by default. If our clients want this functionality they should request that it be enabled.
+
+## [1.0.9] - 04-13-2021
+
+### Added
+- Added new add_theme_support for the following
+
 ## [1.0.8] - 04-10-2021
 
 ### Added
