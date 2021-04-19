@@ -28,7 +28,7 @@
     "wpackagist-plugin/shortcode-in-menus": "3.5.1",
     "wpackagist-plugin/stream": "3.6.0",
     "wpackagist-plugin/wp-mail-smtp" : "2.6.0",
-    "wpackagist-plugin/wordpress-seo": "15.7",
+    "wpackagist-plugin/wordpress-seo": "15.9.2",
     "wpackagist-theme/twentytwentyone": "1.1"
   },
   "extra": {
