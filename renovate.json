@@ -1,5 +1,15 @@
 {
   "extends": [
     "config:base"
+  ],
+  "hostRules": [
+    {
+      "hostName": "packagist.linchpin.com",
+      "hostType": "packagist",
+      "encrypted": {
+        "username": "lYQN9dHdSX4+8Kh4pjz7nZS1Hzzsd6mxVOdv5LQScE6/SL4AAKDlRo5zky2yI4MonMGuBT3bNl4XJ+dj5x/ULyrDRXj8wKYp6DVafuH1VjZCn1QyN9pMopGMVqJANGIa9kUrEbN9K9mgoJ2EnIW8CnsZ3Bms0fyYTQeNVQntjUFf11C/KnbTH5EMdcml2L7kNW5wAqAEGNM2bhtKbcfdlHgliqwqDCNTjtbObxhtPeYLBCgKt/aZdqkFcERMuT7cn6Tisrawf6p7S15e8297lf3CWBd+PY+Y0lMx3zEvG6gVVzsO1nyGJOXnnVIxcP8oJ9DdVEO8bPSJBkN106hmyA==",
+        "password": "rlT1qyAHUB+AE/jhtGixTJzO8uG3bsXSi2LdIBZg7X5QfgGzoXr41/vp6AfU2WAD6+vcaew4Tbeu58eJ/z7CxZrCFhpxo+28qNC4GE4FznPmsefBs7XISXJfnl1rv7fkhvunrMe4/R3VFZFe8AuNVVH59UByhqQz4B2j53LmPA2iw5URHE4nEXof8j3d2Amj7E9bhXs/Y2OWlQ3W2cbHmy0ok+NDjhrb0A1V7q29PAJvgS8R500a7Og9+vXgx2NHHr5r03qGrF93i/tn/CK8hLVSwcr+NoR4S4zZW4ZWP+/8H7fO++2QM/E3JsXJGXK3KkyKr6l1WmJpSjlLGUliwA=="
+      }
+    }
   ]
 }
