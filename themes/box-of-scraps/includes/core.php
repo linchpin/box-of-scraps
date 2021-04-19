@@ -33,6 +33,8 @@ function setup() {
 	add_action( 'wp_head', $n( 'add_manifest' ), 10 );
 
 	add_filter( 'script_loader_tag', $n( 'script_loader_tag' ), 10, 2 );
+
+	add_filter('wp_headers', $n( 'disable_floc' ) );
 }
 
 /**
@@ -47,7 +49,6 @@ function register_menus() {
 		]
 	);
 }
-
 
 /**
  * Makes Theme available for translation.
@@ -277,4 +278,15 @@ function script_loader_tag( $tag, $handle ) {
  */
 function add_manifest() {
 	echo '<link rel="manifest" href="' . esc_url( BOX_OF_SCRAPS_URL . '/manifest.json' ) . '" />';
+}
+
+/**
+ * Disable FLOC
+ *
+ * @param array $headers HTTP Headers.
+ * @return array
+ */
+function disable_floc( $headers ) {
+	$headers['Permissions-Policy'] = 'interest-cohort=()';
+	return $headers;
 }
