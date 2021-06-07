@@ -79,7 +79,7 @@ jobs:
 
       # run composer install
       - name: Composer Install
-        uses: php-actions/composer@v5
+        uses: php-actions/composer@v6
         with:
           working_dir: ./composer_dependencies
 
