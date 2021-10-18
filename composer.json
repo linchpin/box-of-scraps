@@ -27,7 +27,7 @@
     "wpackagist-plugin/rewrite-rules-inspector": "1.2.1",
     "wpackagist-plugin/shortcode-in-menus": "3.5.1",
     "wpackagist-plugin/stream": "3.6.0",
-    "wpackagist-plugin/wp-mail-smtp" : "2.6.0",
+    "wpackagist-plugin/wp-mail-smtp" : "2.9.0",
     "wpackagist-plugin/wordpress-seo": "15.7",
     "wpackagist-theme/twentytwentyone": "1.1"
   },
