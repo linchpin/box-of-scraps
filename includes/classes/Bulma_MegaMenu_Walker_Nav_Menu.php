@@ -2,6 +2,9 @@
 
 namespace BoxOfScraps;
 
+/**
+ * Bulma_Walker_Nav_Menu class
+ */
 class Bulma_Walker_Nav_Menu extends \Walker_Nav_Menu {
 	/**
 	 * Starts the element output.

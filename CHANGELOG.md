@@ -6,35 +6,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.7] - 04-01-2021
+## [1.0.10] - 04-18-2021
+
 ### Added
-- Added a new release-cleanup.sh that will remove unneeded files when a release is created
-- Added a CHANGELOG.md to the default box-of-scraps files. Including the default keepachangelog formatting
-### Update
-- Updated .distignore to remove some unneeded files from the distribution version on github
-- Updated the release workflow
-- Updated the default package.json
+- Addded a new hook to disable FLOC by default. If our clients want this functionality they should request that it be enabled.
 
-### Update
-- Making sure the deployment ID is passed along in order to show status properly
-## [1.0.5] - 03-25-2021
-### Update
-- Making sure the deployment ID is passed along in order to show status properly
+## [1.0.9] - 04-13-2021
 
-## [1.0.3] - 03-25-2021
-### Update
-- Adjusting Production Workflow based on deploy-scaffold
-
-## [1.0.2] - 03-25-2021
-### Update
-- Adjusting Production Workflow based on deploy-scaffold
-
-## [1.0.1] - 03-24-2021
-### Update
-- Deploy workflow
-
-## [1.0.0] - 03-24-2021
 ### Added
-- Created a default release
-- Changelog body should now be displayed within the release
-- This latest.md will automatically be merged into your README.md as the top entry within the **CHANGELOG.md** when running the `changelog.sh`
+- Added new add_theme_support for the following
+
+## [1.0.8] - 04-10-2021
+
+### Added
+- Added kitchen sink template (still needs work)
+
+### Updated
+- Updated some code formatting
+
+## [1.0.6] - 04-05-2021
+
+### Added
+- Added utility class to pull in SVG Icons
+- New partial for the hamburger icon
+- Added manifest.json for SEO
+
+### Updated
+- Updated custom Walker_Nav_Menu name to include "Bulma" Bulma_Walker_Nav_Menu
+- Updated comments template
+
+### Removed
+- Removed any references to truss
+
+## [1.0.0] - 03-25-2021
+### Added
+- Initial Release

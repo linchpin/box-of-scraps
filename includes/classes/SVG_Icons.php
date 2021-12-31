@@ -2,9 +2,9 @@
 /**
  * SVG Icons class
  *
- * @package BoxOfScraps
+ * @package    BoxOfScraps
  * @subpackage SVG Icons
- * @since BoxOfScraps 1.0
+ * @since      1.0
  */
 
 namespace BoxOfScraps;

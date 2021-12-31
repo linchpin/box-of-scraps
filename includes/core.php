@@ -1,6 +1,6 @@
 <?php
 /**
- * Fluval
+ * BoxOfScraps
  *
  * @author  Linchpin
  * @package BoxOfScraps
@@ -34,7 +34,7 @@ function setup() {
 
 	add_filter( 'script_loader_tag', $n( 'script_loader_tag' ), 10, 2 );
 
-	add_filter('wp_headers', $n( 'disable_floc' ) );
+	add_filter( 'wp_headers', $n( 'disable_floc' ) );
 }
 
 /**

@@ -1,19 +1,15 @@
-# Linchpin Deployment Scaffold
+# Box of Scraps
 
-This is a template repo that can be used when setting up a new client for deployments.
+Box of scraps is a base WordPress theme scaffold used when building sites @ [Linchpin](https://linchpin.com) while it can be used as a stand alone, the team typically utilizes with [deploy-scaffold](https://github.com/linchpin/deploy-scaffold)
 
-# How to use this template
+## String Replacements
 
-- To begin, use the "Use this template" button located at the top of the github page.
-- When pulling down this repo be sure to rename the folder or clone it into a proper directory using `gh repo clone linchpin/your-project-name wp-content` remember that your project should use this project as a template so it will have a different name than `deploy-scaffold`
+The following list of strings need to be replaced when creating your theme based on Box of Scraps
 
-# Contents
-
-This repo contains the latest version of the following items
-
-1. workflow.yml(s) for deployments; Keep in mind this will need to be modified for your project
-2. a standard composer.json to have the latest https://wpackagist.org and https://packagist.linchpin.com WordPress Plugins and Themes
-
-# Keeping this project up to date
-
-If you make any adjustments to the base workflows, those changes should be made here. If you make any adjustments to https://linchpin.atlassian.net/wiki/spaces/LD/pages/18645034/Standard+WordPress+Plugin+Installation as well
+| String | Location                                     |
+| ------ |----------------------------------------------|
+| `box-of-scraps` | Typically used for "domain" for translations |
+| `BoxOfScraps` | NameSpace within PHP files and classes       |
+| `BOX_OF_SCRAPS` | Constants within PHP                         |
+| `boxofscraps` | ???                                          |
+| `Box of Scraps` | Labels and random things |

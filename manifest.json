@@ -1,7 +1,7 @@
 {
-    "name": "Linchpin Theme",
-    "short_name": "Linchpin Theme",
-    "description": "Project description for Linchpin Theme",
+    "name": "Box of Scraps",
+    "short_name": "Box of Scraps Theme",
+    "description": "Tony Stark built this theme in a cave, with a box of scraps!",
     "display": "standalone",
     "start_url": "/?utm_source=app",
     "background_color": "#000000",

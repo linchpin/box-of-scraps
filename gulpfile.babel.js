@@ -1,15 +1,16 @@
 'use strict';
 
-var plugins       = require('gulp-load-plugins');
-var yargs         = require('yargs');
-var gulp          = require('gulp');
-var rimraf        = require('rimraf');
-var yaml          = require('js-yaml');
-var fs            = require('fs');
-var webpackStream = require('webpack-stream');
-var webpack2      = require('webpack');
-var named         = require('vinyl-named');
-var autoprefixer  = require('autoprefixer');
+let plugins       = require('gulp-load-plugins');
+let yargs         = require('yargs');
+let gulp          = require('gulp');
+let rimraf        = require('rimraf');
+let yaml          = require('js-yaml');
+let fs            = require('fs');
+let webpackStream = require('webpack-stream');
+let webpack2      = require('webpack');
+let named         = require('vinyl-named');
+let autoprefixer  = require('autoprefixer');
+let sass          = require('gulp-sass')(require('node-sass'));
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -69,14 +70,14 @@ function setProductionMode(done) {
 	done();
 }
 
-// Build the "dist" folder by running all of the below tasks
+// Build the "dist" folder by running the tasks below
 // Sass must be run later so UnCSS can search for used classes in the others assets.
 gulp.task('build:production',
-	gulp.series(setProductionMode, clean, javascript, sass));
+	gulp.series(setProductionMode, clean, javascript, buildSass));
 
 // Build the site and watch for file changes
 gulp.task('default',
-	gulp.series(clean, javascript, sass, gulp.parallel(watch)));
+	gulp.series(clean, javascript, buildSass, gulp.parallel(watch)));
 
 // This happens every time a build starts
 function clean(done) {
@@ -92,7 +93,7 @@ function copy() {
 }
 
 // In production, the CSS is compressed
-function sass() {
+function buildSass() {
 
 	const postCssPlugins = [
 		// Autoprefixer
@@ -104,10 +105,10 @@ function sass() {
 
 	return gulp.src('assets/scss/*.scss')
 		.pipe($.sourcemaps.init())
-		.pipe($.sass({
+		.pipe(sass({
 			includePaths: PATHS.sass
 		})
-			.on('error', $.sass.logError))
+			.on('error', sass.logError))
 		.pipe($.postcss(postCssPlugins))
 		.pipe($.if(sassConfig.production, $.cleanCss({ compatibility: 'ie11' })))
 		.pipe($.if(!sassConfig.production, $.sourcemaps.write()))
@@ -130,6 +131,6 @@ function javascript() {
 // Watch for changes to static assets, Sass, and JavaScript
 function watch() {
 	// gulp.watch(PATHS.assets, copy);
-	gulp.watch('assets/scss/**/*.scss').on('all', gulp.series(sass));
+	gulp.watch('assets/scss/**/*.scss').on('all', gulp.series(buildSass));
 	gulp.watch('assets/js/**/*.js').on('all', gulp.series(javascript));
 }
