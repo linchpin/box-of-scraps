@@ -6,12 +6,10 @@
  * 02. Theme Config
  * 03. Bulma Library
  *     - imported from bulma-scss node_module
- * 04. Swiper Library
- *	   - imported from swiper node_module
- * 05. Layout
- * 06. Theme components
- * 07. Integrations
- * 08. Blocks
+ * 04. Within Editor Styles
+ *	   04.1 Layout
+ *     04.2 Theme components
+ * 05. Blocks
  */
 
 // 01. Bulma Function
@@ -23,17 +21,16 @@
 // 03. Bulma Library
 @import 'bulma';
 
-// 04. Swiper Library
-// @import 'swiper';
+// 04. Within Editor Styles
+.editor-styles-wrapper {
+	// 04.1 Layout
+	@import 'layout/layout';
 
-// 05. Layout
-@import 'layout/layout';
+	// 04.2 Theme components
+	@import 'components/components';
 
-// 06. Theme components
-@import 'components/components';
+	font-family: $family-sans-serif;
+}
 
-// 07. Integrations
-// @import 'integrations/woocommerce';
-
-// 08. Blocks
+// 05. Blocks
 // @import 'blocks/blocks';

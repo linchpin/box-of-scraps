@@ -1,0 +1,75 @@
+/**
+ * 01. Body
+ * 02. Body Overlay
+ * 03. Grid
+ * 04. Backgrounds
+ */
+
+
+// 01. Body
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	padding-top: $header-height;
+}
+
+// 02. Body Overlay
+
+#body-overlay {
+	background: rgba($black, .75);
+	opacity: 0;
+	pointer-events: none;
+
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 90;
+
+	transition: opacity $transition-base;
+
+	.off-canvas-open & {
+		cursor: pointer;
+		opacity: 1;
+		pointer-events: initial;
+	}
+}
+
+
+// 03. Grid
+
+.column {
+	max-width: 100%;
+}
+
+@include touch {
+	.container {
+		&.is-fluid {
+			padding: {
+				left: 1rem;
+				right: 1rem;
+			};
+		}
+	}
+}
+
+// 04. Backgrounds
+
+.has-full-bg, .has-full-background {
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: -100vw;
+		right: -100vw;
+		z-index: -1;
+		background: inherit;
+	}
+}

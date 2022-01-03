@@ -1,0 +1,43 @@
+$icomoon-font-family: "font-name" !default;
+$icomoon-font-path: "../assets/fonts" !default;
+
+// Icon Variables Here
+// $icon-arrow-right: "\e900";
+
+@font-face {
+	font-family: '#{$icomoon-font-family}';
+	src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?bxscrps');
+	src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?bxscrps#iefix') format('embedded-opentype'),
+	url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?bxscrps') format('truetype'),
+	url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?bxscrps') format('woff'),
+	url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?bxscrps##{$icomoon-font-family}') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+@mixin icon-font {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: '#{$icomoon-font-family}' !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+	@include icon-font;
+}
+
+// Icon Classes Here
+// .icon-arrow-right {
+// 	&:before {
+// 		content: $icon-arrow-right;
+// 	}
+// }
