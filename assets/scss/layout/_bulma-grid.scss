@@ -1,0 +1,52 @@
+/**
+ * 01. Mobile/Touch Flex
+ * 02. Responsive Ordering
+ * 03. Responsive Alignment
+ */
+
+
+// 01. Mobile/Touch Flex
+
+.is-touch-wrap {
+	@include touch {
+		flex-wrap: wrap;
+	}
+}
+
+.is-mobile-wrap {
+	@include mobile {
+		flex-wrap: wrap;
+	}
+}
+
+
+// 02. Responsive Ordering
+
+@for $i from 1 through 4 {
+	@include desktop {
+		.is-desktop-order-#{$i} {
+			order: $i;
+		}
+	}
+
+	@include touch {
+		.is-touch-order-#{$i} {
+			order: $i;
+		}
+	}
+
+	@include mobile {
+		.is-mobile-order-#{$i} {
+			order: $i;
+		}
+	}
+}
+
+
+// 03. Responsive Alignment
+
+@include touch {
+	.is-align-items-center-touch {
+		align-items: center !important;
+	}
+}

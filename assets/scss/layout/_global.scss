@@ -13,7 +13,9 @@ html {
 }
 
 body {
-	padding-top: $header-height;
+	@include desktop {
+		padding-top: $header-height;
+	}
 }
 
 // 02. Body Overlay
