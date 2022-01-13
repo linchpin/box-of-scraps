@@ -1,0 +1,184 @@
+@function legibility($hex) {
+	$return: $white;
+
+	@if lightness($hex) > 50% {
+		$return: $black;
+	}
+
+	@return $return;
+}
+
+$buttons-static:
+	(
+		'white': $white,
+		'green': $primary,
+		'black': $black
+	)
+;
+
+$buttons-static-text:
+	(
+		'white': $black
+	)
+;
+
+$buttons-hover:
+	(
+		'green': $primary-dark
+	)
+;
+
+$buttons-hover-text:
+	(
+		'green': $white
+	)
+;
+
+$buttons-outline-hover-border:
+	(
+		'white': $grey-lightest
+	)
+;
+
+$buttons-outline-hover-fill:
+	(
+		'white': $grey-lightest
+	)
+;
+
+$buttons-outline-hover-text:
+	(
+		'white': $black
+	)
+;
+
+$button-sizes:
+	(
+		'button-small': 12px,
+		'button-large': 16px,
+		'button-xlarge': 19px
+	)
+;
+
+$button-size-padding:
+	(
+		'button-small': .6875rem 1.4375rem .75rem,
+		'button-large': 1.0625rem 1.875rem,
+		'button-xlarge': 1.1875rem 5.25rem 1.25rem,
+	)
+;
+
+// Bulma button
+body .button {
+	font-size: 14px;
+	line-height: .86em;
+}
+
+// Block button
+.wp-block-button {
+	> .wp-block-button__link {
+		@include theme-button;
+	}
+
+	// Default -- no custom bg and no outline
+	&:not([class*="background-color"]):not([class*="is-style-outline"]) {
+		> .wp-block-button__link {
+			background: $primary;
+			color: $white;
+
+			&:hover {
+				background: $primary-dark;
+			}
+		}
+	}
+
+	&.tall {
+		> .wp-block-button__link {
+			padding: 1.4375rem $button-padding-horizontal;
+		}
+	}
+
+	@each $button, $size in $button-sizes {
+		$button-padding: map-get($button-size-padding, $button);
+
+		&.has-#{$button}-font-size {
+			> .wp-block-button__link {
+				font-size: $size !important;
+
+				@if $button-padding != null {
+					padding: $button-padding;
+				}
+			}
+		}
+	}
+}
+
+// Block button container
+.wp-block-buttons .wp-block-button,
+.gb-block-button {
+	margin-bottom: 0;
+}
+
+// Hover styles -- scale-color($button-background, $lightness: -15%);
+.gb-block-button .gb-button:hover {
+	box-shadow: none;
+}
+
+@each $button, $fill in $buttons-static {
+	$static-fill: $fill;
+	$static-text: map-get($buttons-static-text, $button);
+	$hover-fill: map-get($buttons-hover, $button);
+	$hover-text: map-get($buttons-hover-text, $button);
+	$outline-hover-border: map-get($buttons-outline-hover-border, $button);
+	$outline-hover-fill: map-get($buttons-outline-hover-fill, $button);
+	$outline-hover-text: map-get($buttons-outline-hover-text, $button);
+
+	@if $static-text == null {
+		$static-text: legibility($static-fill);
+	}
+
+	@if $hover-fill == null {
+		$hover-fill: scale-color($static-fill, $lightness: -15%);
+	}
+
+	@if $hover-text == null {
+		$hover-text: legibility($hover-fill);
+	}
+
+	@if $outline-hover-border == null {
+		$outline-hover-border: scale-color($static-fill, $lightness: -20%);
+	}
+
+	@if $outline-hover-fill == null {
+		$outline-hover-fill: transparent;
+	}
+
+	@if $outline-hover-text == null {
+		$outline-hover-text: scale-color($static-fill, $lightness: -20%);
+	}
+
+	.wp-block-buttons .wp-block-button:not(.is-style-outline) .has-#{$button}-background-color,
+	.gb-block-button:not(.hollow) .gb-button[style*="background-color:#{$fill}"],
+	.gb-block-button:not(.outline) .gb-button[style*="background-color:#{$fill}"] {
+		&:hover,
+		&:active,
+		&:focus {
+			background: $hover-fill !important;
+			color: $hover-text !important;
+		}
+	}
+
+	.wp-block-buttons .wp-block-button.is-style-outline .has-#{$button}-color,
+	.gb-block-button.hollow .gb-button[style*="color:#{$fill};"],
+	.gb-block-button.outline .gb-button[style*="color:#{$fill};"] {
+		border-color: $static-fill;
+
+		&:hover,
+		&:active,
+		&:focus {
+			background: $outline-hover-fill !important;
+			border-color: $outline-hover-border !important;
+			color: $outline-hover-text !important;
+		}
+	}
+}

@@ -43,9 +43,9 @@ function setup() {
 function register_menus() {
 	register_nav_menus(
 		[
-			'primary_menu' => esc_html__( 'Primary Menu', 'fluval' ),
-			'footer_menu'  => esc_html__( 'Footer Menu', 'fluval' ),
-			'social_menu'  => esc_html__( 'Social Menu', 'fluval' ),
+			'primary_menu' => esc_html__( 'Primary Menu', 'scraps' ),
+			'footer_menu'  => esc_html__( 'Footer Menu', 'scraps' ),
+			'social_menu'  => esc_html__( 'Social Menu', 'scraps' ),
 		]
 	);
 }
