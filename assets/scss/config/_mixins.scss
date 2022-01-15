@@ -1,0 +1,31 @@
+/**
+ * 01. Buttons
+ * 02. Positioning
+ */
+
+// 01. Buttons
+@mixin boxofscraps-button( $type: default, $color: $white, $hover-color: $black ) {
+	@if $type == 'outline' {
+		background: transparent;
+		border: 2px solid $color;
+		color: $color;
+
+		&:hover {
+			background: $color;
+			color: $hover-color;
+		}
+	} @else {
+		border: 2px solid transparent;
+	}
+	
+	padding: $button-padding-vertical $button-padding-horizontal;
+	text-decoration: none;
+}
+
+// 02. Positioning
+@mixin position($top, $right: $top, $bottom: $top, $left: $right) {
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+}

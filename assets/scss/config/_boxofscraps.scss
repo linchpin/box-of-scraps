@@ -1,0 +1,75 @@
+/**
+ * 01. Global
+ * 02. Navbar
+ * 03. Mega Slideout
+ * 04. Footer
+ */
+
+
+// 01. Global
+
+$grid-width: 1344px;
+$transition-base: 500ms linear;
+$transition-fast: 250ms linear;
+
+
+// 02. Navbar
+
+$header-height-mobile: 106px;
+$header-height-mobile-admin: $header-height-mobile + 46;
+
+$navbar-font-size: 1rem;
+$navbar-font-weight: 600;
+$navbar-main-background: #e6f1fc;
+$navbar-main-border-width: 1px;
+$navbar-main-border-color: $border-gray;
+
+$navbar-notice-font-size: .875rem;
+$navbar-notice-padding-y: .5rem;
+$navbar-notice-height: $navbar-notice-font-size + ( $navbar-notice-padding-y * 2 );
+$navbar-notice-background: $black;
+$navbar-notice-color: $white;
+
+$navbar-centered-bookend-width: 200px;
+
+$header-height:
+	$navbar-height +
+	$navbar-notice-height
+;
+
+
+// 03. Mega Slideout
+
+$mega-slideout-top-position: $header-height;
+$mega-slideout-background: #fff;
+$mega-slideout-border-width: 1px;
+$mega-slideout-border-color: $border-gray;
+$mega-slideout-link-color: $navbar-item-color;
+$mega-slideout-link-color-hover: $navbar-item-hover-color;
+$mega-slideout-dropdown-width: 25vw;
+
+
+// 04. Footer
+
+$copyright-font-size: .75rem;
+$copyright-margin: 0 -.75rem;
+$copyright-item-color: white;
+$copyright-item-padding: 0 .75rem;
+$copyright-item-border-width: 1px;
+$copyright-item-border-color: $copyright-item-color;
+
+$footer-link-color: white;
+$footer-link-color-hover: $gray-lightest;
+$footer-label-color: $gray;
+$footer-label-color-hover: $gray-lightest;
+$footer-social-color: $boxofscraps-blue;
+$footer-social-color-hover: $gray-lightest;
+
+
+$topfooter-padding: 2rem 0;
+$topfooter-background: transparent;
+
+$subfooter-padding: .5rem 0;
+$subfooter-background: $gray-darkest;
+$subfooter-link-color: $copyright-item-color;
+$subfooter-link-color-hover: $copyright-item-color;

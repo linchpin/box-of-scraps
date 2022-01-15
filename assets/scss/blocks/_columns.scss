@@ -1,0 +1,70 @@
+/**
+ * 01. Core Columns
+ * 02. Jetpack Layout Grid
+ */
+
+@import '../../../node_modules/bulma-scss/utilities/mixins';
+
+$container-offset: 2 * $column-gap !default;
+$container-max-width: $fullhd !default;
+
+// 01. Core Columns
+
+.wp-block-columns {
+	&:not(.full) {
+		@include desktop {
+			max-width: $desktop;
+		}
+
+
+		@include until-widescreen {
+			&.is-widescreen:not(.is-max-desktop) {
+				max-width: min($widescreen, $container-max-width) - $container-offset;
+			}
+		}
+
+
+		@include until-fullhd {
+			&.is-fullhd:not(.is-max-desktop):not(.is-max-widescreen) {
+				max-width: min($fullhd, $container-max-width) - $container-offset;
+			}
+		}
+
+
+		@include widescreen {
+			&:not(.is-max-desktop) {
+				max-width: min($widescreen, $container-max-width) - $container-offset;
+			}
+		}
+
+
+		@include fullhd {
+			&:not(.is-max-desktop):not(.is-max-widescreen) {
+				max-width: min($fullhd, $container-max-width) - $container-offset;
+			}
+		}
+
+		margin: {
+			left: auto;
+			right: auto;
+		};
+
+		@media screen and ( max-width: 1232px ) {
+			padding: {
+				left: $column-gap;
+				right: $column-gap;
+			};
+		}
+	}
+}
+
+
+// 02. Jetpack Layout Grid
+
+.wp-block-jetpack-layout-grid {
+	max-width: $grid-width;
+	margin: {
+		left: auto;
+		right: auto;
+	};
+}

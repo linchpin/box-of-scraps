@@ -1,0 +1,8 @@
+/vendor
+node_modules
+
+# Files that get built during deploy process
+/css/boxofscraps.css
+/css/boxofscraps-editor.css
+/js/boxofscraps.js
+/js/boxofscraps.js.map

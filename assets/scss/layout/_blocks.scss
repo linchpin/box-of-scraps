@@ -1,0 +1,33 @@
+/**
+ * 01. Global
+ * 02. Columns
+ */
+
+
+// 01. Global
+.no-overlay {
+	&:before {
+		display: none;
+	}
+}
+
+.no-min-height {
+	min-height: auto;
+}
+
+
+// 02. Columns
+
+.wp-block-columns {
+	&.is-vcentered {
+		align-items: center;
+	}
+}
+
+.flex-column-children {
+	display: flex;
+
+	> .wp-block-column {
+		display: flex;
+	}
+}

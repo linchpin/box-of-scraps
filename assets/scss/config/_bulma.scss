@@ -32,7 +32,7 @@
  * 22. Table
  * 23. Tag
  * 24. Title
- * 
+ *
  * -- Form
  * 25. Shared
  * 26. File
@@ -65,16 +65,37 @@
 
 // Colors
 
-$black: hsl(0, 0%, 4%);
+$black: #222932;
+
+$boxofscraps-blue: #3FC1D0;
+$boxofscraps-blue-hover: #329aa6;
+$boxofscraps-purple: #d43c9e;
+$boxofscraps-gray: #f2f2f3;
+$boxofscraps-medium-gray: #d9d9d9;
+$boxofscraps-opaque-blue: rgba(63, 193, 208, 0.15);
+$boxofscraps-almost-black: #2b3543;
+$boxofscraps-opaque-black: rgba($black, .15);
+
+$border-gray: rgba($black, .15);
+
 $black-bis: hsl(0, 0%, 7%);
 $black-ter: hsl(0, 0%, 14%);
 
-$grey-darker: hsl(0, 0%, 21%);
-$grey-dark: hsl(0, 0%, 29%);
-$grey: hsl(0, 0%, 48%);
-$grey-light: hsl(0, 0%, 71%);
-$grey-lighter: hsl(0, 0%, 86%);
-$grey-lightest: hsl(0, 0%, 93%);
+$gray-darkest: hsl(212, 17%, 15%);
+$gray-darker: hsl(0, 0%, 21%);
+$gray-dark: hsl(0, 0%, 29%);
+$gray: hsl(0, 0%, 48%);
+$gray-light: hsl(0, 0%, 71%);
+$gray-lighter: hsl(0, 0%, 86%);
+$gray-lightest: hsl(0, 0%, 93%);
+
+$grey-darkest: $gray-darkest;
+$grey-darker: $gray-darker;
+$grey-dark: $gray-dark;
+$grey: $gray;
+$grey-light: $gray-light;
+$grey-lighter: $gray-lighter;
+$grey-lightest: $gray-lightest;
 
 $white-ter: hsl(0, 0%, 96%);
 $white-bis: hsl(0, 0%, 98%);
@@ -89,7 +110,14 @@ $blue: hsl(217, 71%, 53%);
 $purple: hsl(271, 100%, 71%);
 $red: hsl(348, 86%, 61%);
 
-$primary: $turquoise;
+$primary: $boxofscraps-blue;
+$secondary: $boxofscraps-gray;
+$accent: $boxofscraps-purple;
+
+$temp_primary: #257bc3;
+$temp_primary-invert: findColorInvert($temp_primary);
+$temp_primary-light: findLightColor($temp_primary);
+$temp_primary-dark: findDarkColor($temp_primary);
 
 $info: $cyan;
 $success: $green;
@@ -97,7 +125,7 @@ $warning: $yellow;
 $danger: $red;
 
 $light: $white-ter;
-$dark: $grey-darker;
+$dark: $gray-darker;
 
 // Invert colors
 
@@ -139,17 +167,17 @@ $scheme-invert-ter: $black-ter;
 
 $background: $white-ter;
 
-$border: $grey-lighter;
-$border-hover: $grey-light;
-$border-light: $grey-lightest;
-$border-light-hover: $grey-light;
+$border: $gray-lighter;
+$border-hover: $gray-light;
+$border-light: $gray-lightest;
+$border-light-hover: $gray-light;
 
 // Text colors
 
-$text: $grey-dark;
+$text: $black;
 $text-invert: findColorInvert($text);
-$text-light: $grey;
-$text-strong: $grey-darker;
+$text-light: $gray;
+$text-strong: $gray-darker;
 
 // Code colors
 
@@ -161,20 +189,20 @@ $pre-background: $background;
 
 // Link colors
 
-$link: $blue;
+$link: $primary;
 $link-invert: findColorInvert($link);
 $link-light: findLightColor($link);
-$link-dark: findDarkColor($link);
+$link-dark: $black;
 $link-visited: $purple;
 
-$link-hover: $grey-darker;
-$link-hover-border: $grey-light;
+$link-hover: $boxofscraps-blue-hover;
+$link-hover-border: $gray-light;
 
-$link-focus: $grey-darker;
+$link-focus: $link-hover;
 $link-focus-border: $blue;
 
-$link-active: $grey-darker;
-$link-active-border: $grey-dark;
+$link-active: $link-hover;
+$link-active-border: $gray-dark;
 
 // Lists and maps
 $custom-colors: null;
@@ -209,32 +237,32 @@ $colors: (
 $shades: (
 	"black-bis": $black-bis,
 	"black-ter": $black-ter,
-	"grey-darker": $grey-darker,
-	"grey-dark": $grey-dark,
-	"grey": $grey,
-	"grey-light": $grey-light,
-	"grey-lighter": $grey-lighter,
+	"gray-darker": $gray-darker,
+	"gray-dark": $gray-dark,
+	"gray": $gray,
+	"gray-light": $gray-light,
+	"gray-lighter": $gray-lighter,
 	"white-ter": $white-ter,
 	"white-bis": $white-bis
 );
 
 // Typography
 
-$family-sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$family-sans-serif: 'Titillium Web', sans-serif;
 $family-monospace: monospace;
 $render-mode: optimizeLegibility;
 
-$size-1: 3rem;
-$size-2: 2.5rem;
-$size-3: 2rem;
-$size-4: 1.5rem;
+$size-1: 2.25rem;
+$size-2: 2rem;
+$size-3: 1.5rem;
+$size-4: 1.25rem;
 $size-5: 1.25rem;
 $size-6: 1rem;
 $size-7: 0.75rem;
 
-$weight-light: 300;
+// $weight-light: 300;
 $weight-normal: 400;
-$weight-medium: 500;
+// $weight-medium: 500;
 $weight-semibold: 600;
 $weight-bold: 700;
 
@@ -305,8 +333,8 @@ $control-radius-small: $radius-small;
 
 $control-border-width: 1px;
 
-$control-height: 2.5em;
-$control-line-height: 1.5;
+$control-height: auto;
+$control-line-height: 1.25;
 
 $control-padding-vertical: calc(0.5em - #{$control-border-width});
 $control-padding-horizontal: calc(0.75em - #{$control-border-width});
@@ -343,7 +371,7 @@ $hr-background-color: $background;
 $hr-height: 2px;
 $hr-margin: 1.5rem 0;
 
-$strong-color: $text-strong;
+$strong-color: inherit;
 $strong-weight: $weight-bold;
 
 $pre-font-size: 0.875em;
@@ -360,7 +388,7 @@ $pre-code-font-size: 1em;
 
 // 02. Breadcrumb
 
-$breadcrumb-item-color: $link;
+$breadcrumb-item-color: $black;
 $breadcrumb-item-hover-color: $link-hover;
 $breadcrumb-item-active-color: $text-strong;
 
@@ -432,22 +460,22 @@ $media-level-2-spacing: 0.5rem;
 
 // 07. Menu
 
-$menu-item-color: $text;
+$menu-item-color: $temp_primary;
 $menu-item-radius: $radius-small;
 $menu-item-hover-color: $text-strong;
-$menu-item-hover-background-color: $background;
+$menu-item-hover-background-color: transparent;
 $menu-item-active-color: $link-invert;
 $menu-item-active-background-color: $link;
 
 $menu-list-border-left: 1px solid $border;
 $menu-list-line-height: 1.25;
-$menu-list-link-padding: 0.5em 0.75em;
+$menu-list-link-padding: 0.5em 0;
 $menu-nested-list-margin: 0.75em;
 $menu-nested-list-padding-left: 0.75em;
 
-$menu-label-color: $text-light;
-$menu-label-font-size: 0.75em;
-$menu-label-letter-spacing: 0.1em;
+$menu-label-color: $temp_primary;
+$menu-label-font-size: 1rem;
+$menu-label-letter-spacing: 0;
 $menu-label-spacing: 1em;
 
 
@@ -512,21 +540,21 @@ $modal-breakpoint: $tablet;
 
 // 10. Navbar
 
-$navbar-background-color: $primary;
+$navbar-background-color: white;
 $navbar-box-shadow-size: 0 2px 0 0;
 $navbar-box-shadow-color: $background;
-$navbar-height: 3.25rem;
+$navbar-height: 5rem;
 $navbar-padding-vertical: 1rem;
 $navbar-padding-horizontal: 2rem;
 $navbar-z: 30;
 $navbar-fixed-z: 30;
 
-$navbar-item-color: $text;
-$navbar-item-hover-color: $link;
-$navbar-item-hover-background-color: $scheme-main-bis;
+$navbar-item-color: $black;
+$navbar-item-hover-color: $link-hover;
+$navbar-item-hover-background-color: transparent;
 $navbar-item-active-color: $scheme-invert;
 $navbar-item-active-background-color: transparent;
-$navbar-item-img-max-height: 1.75rem;
+$navbar-item-img-max-height: 3rem;
 
 $navbar-burger-color: $navbar-item-color;
 
@@ -541,9 +569,9 @@ $navbar-tab-active-border-bottom-width: 3px;
 $navbar-dropdown-background-color: $scheme-main;
 $navbar-dropdown-border-top: 2px solid $border;
 $navbar-dropdown-offset: -4px;
-$navbar-dropdown-arrow: $link;
+$navbar-dropdown-arrow: $black;
 $navbar-dropdown-radius: $radius-large;
-$navbar-dropdown-z: 20;
+$navbar-dropdown-z: 40;
 
 $navbar-dropdown-boxed-radius: $radius-large;
 $navbar-dropdown-boxed-shadow: 0 8px 8px bulmaRgba($scheme-invert, 0.1), 0 0 0 1px bulmaRgba($scheme-invert, 0.1);
@@ -595,7 +623,7 @@ $pagination-current-color: $link-invert;
 $pagination-current-background-color: $link;
 $pagination-current-border-color: $link;
 
-$pagination-ellipsis-color: $grey-light;
+$pagination-ellipsis-color: $gray-light;
 
 $pagination-shadow-inset: inset 0 1px 2px rgba($scheme-invert, 0.2);
 
@@ -689,11 +717,11 @@ $button-color: $text-strong;
 $button-background-color: $scheme-main;
 $button-family: false;
 
-$button-border-color: $border;
-$button-border-width: $control-border-width;
+$button-border-color: $black;
+$button-border-width: 2px;
 
-$button-padding-vertical: calc(0.5em - #{$button-border-width});
-$button-padding-horizontal: 1em;
+$button-padding-vertical: 1.125rem;
+$button-padding-horizontal: 1.875rem;
 
 $button-hover-color: $link-hover;
 $button-hover-border-color: $link-hover-border;
@@ -816,8 +844,8 @@ $table-foot-background-color: transparent;
 
 $table-row-hover-background-color: $scheme-main-bis;
 
-$table-row-active-background-color: $primary;
-$table-row-active-color: $primary-invert;
+$table-row-active-background-color: $temp_primary;
+$table-row-active-color: $temp_primary-invert;
 
 $table-striped-row-even-background-color: $scheme-main-bis;
 $table-striped-row-even-hover-background-color: $scheme-main-ter;
@@ -894,7 +922,7 @@ $input-arrow: $link;
 $input-icon-color: $border;
 $input-icon-active-color: $text;
 
-$input-radius: $radius;
+$input-radius: 50px;
 
 
 // 26. File
@@ -984,9 +1012,9 @@ $spacing-values: ("0": 0, "1": 0.25rem, "2": 0.5rem, "3": 0.75rem, "4": 1rem, "5
 
 // 33. Footer
 
-$footer-background-color: $scheme-main-bis;
-$footer-color: false;
-$footer-padding: 3rem 1.5rem;
+$footer-background-color: $black;
+$footer-color: $white;
+$footer-padding: 3rem 0 1.5rem;
 
 
 // 34. Hero
