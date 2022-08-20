@@ -37,7 +37,8 @@
     "yargs": "17.5.1"
   },
   "resolutions": {
-    "glob-parent": "6.0.2"
+    "glob-parent": "6.0.2",
+    "scss-tokenizer": "0.4.3"
   },
   "repository": {
     "type": "git",
