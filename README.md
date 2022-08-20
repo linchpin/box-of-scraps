@@ -4,6 +4,9 @@ Box of scraps is a WordPress theme scaffold used when building sites @ [Linchpin
 
 ## Latest Release [1.5.0] - 08-20-2022
 
+
+![Linchpin](https://github.com/linchpin/brand-assets/raw/master/box-of-scraps.gif)
+
 ## How do I use it?
 
 The best approach is to download the latest release zip as a starting point. The release will have everything you need to get started excluding any `composer` or `npm` dependencies.
@@ -31,3 +34,5 @@ The following list of strings need to be replaced when creating your theme based
 | `BOX_OF_SCRAPS`   | Constants within PHP                          |
 | `boxofscraps`     | ???                                           |
 | `Box of Scraps`   | Labels and random things                      |
+
+![Linchpin](https://github.com/linchpin/brand-assets/raw/master/github-opensource-banner.png)
