@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "lockFileMaintenance": { "enabled": true },
+  "ignoreDeps": [ "husky" ],
+  "labels": [ "type: dependencies", "maintenance" ],
+  "packageRules": [
+    {
+      "updateTypes": [ "minor", "patch", "pin", "digest" ],
+      "matchManagers": ["composer"],
+      "automerge": true,
+      "groupName": [ "npm" ]
+    },
+    {
+      "updateTypes": [ "major", "minor", "patch", "pin", "digest" ],
+      "depTypeList": [ "devDependencies" ],
+      "automerge": true,
+      "groupName": [ "develop" ]
+    }
+  ],
+  "rebaseWhen": "conflicted",
+  "rangeStrategy": "bump"
+}

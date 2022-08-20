@@ -1,136 +1,170 @@
 'use strict';
 
-let plugins       = require('gulp-load-plugins');
-let yargs         = require('yargs');
-let gulp          = require('gulp');
-let rimraf        = require('rimraf');
-let yaml          = require('js-yaml');
-let fs            = require('fs');
-let webpackStream = require('webpack-stream');
-let webpack2      = require('webpack');
-let named         = require('vinyl-named');
-let autoprefixer  = require('autoprefixer');
-let sass          = require('gulp-sass')(require('node-sass'));
+/**
+ * This gulp file is utilized to watch and build our assets.
+ *
+ * In order to run this gulpfile, you must run the following command:
+ *
+ * `yarn install && gulp`
+ *
+ * All options are set in the package.json file within the "gulp" object.
+ *
+ * @since 1.2.0 This file as been update to remove some dependencies and cleanup the codebase.
+ */
 
-// Load all Gulp plugins into one variable
-const $ = plugins();
-
-// Check for --production flag
-let PRODUCTION = !!(yargs.argv.production);
-
-// Load settings from settings.yml
-const { COMPATIBILITY, PORT, UNCSS_OPTIONS, PATHS, LOCAL_PATH } = loadConfig();
-
-let sassConfig = {
-	mode: (PRODUCTION ? true : false)
-};
-
-// Define default webpack object
-let webpackConfig = {
-	mode: (PRODUCTION ? 'production' : 'development'),
-	module: {
-		rules: [
-			{
-				test: /\.js$/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: [ "@babel/preset-env" ],
-						compact: false
-					}
-				}
-			}
-		]
-	},
-	externals: {
-		jquery: 'jQuery'
-	},
-	devtool: ! PRODUCTION && 'source-map'
-};
+const {
+	task,
+	src,
+	series,
+	parallel,
+	watch,
+	dest
+}                  = require( 'gulp' );                                 // It's gulp, it handles our task running.
+const uglify       = require( 'gulp-uglify' );                          // Minify our javascript
+const gulpif       = require( 'gulp-if' );                              // Conditional logic for gulp tasks.
+const sourcemaps   = require( 'gulp-sourcemaps' )                       // Sourcemaps for debugging our code.
+const postcss      = require( 'gulp-postcss' )
+const cleancss     = require( 'gulp-clean-css' );                       // PostCSS for autoprefixing and minifying our CSS.
+const sass         = require( 'gulp-sass' )( require( 'node-sass' ) );  // Build our Sass files.
+const yargs        = require( 'yargs' );                                // Used to grab arguments from the command line.
+const fs           = require( 'fs-extra' )                              // Expands the functionality of Node's fs module.
+const webpack      = require( 'webpack-stream' );												// It's webpack.
+const log          = require( 'fancy-log' );                            // Better output log for gulp tasks
+const autoprefixer = require( 'autoprefixer' );                         // Autoprefix our CSS with vendor prefixes if needed.
 
 /**
- * Load in additional config files
+ * Create some placeholder variables for use in our gulp tasks.
+ *
+ * @since 0.2.0
+ *
+ * @type {{}}
  */
-function loadConfig() {
-	let ymlFile = fs.readFileSync('config.yml', 'utf8');
-	return yaml.load(ymlFile);
+let config     = {};                          // Save our config data to a local object.
+let PRODUCTION = !!( yargs.argv.production ); // Check for --production flag
+
+/**
+ * Utility method to load our configuration file information
+ *
+ * @since 1.2.0
+ *
+ * @param done
+ */
+const loadConfig = ( done ) => {
+
+	fs.readJson( './package.json' )
+		.then( packageJson => {
+			config                 = packageJson.buildconfig;
+			config.webpack.mode    = ( PRODUCTION ? 'production' : 'development' );
+			config.webpack.devtool = ! PRODUCTION && 'source-map'
+			done();
+		} )
+		.catch( err => {
+			log( err );
+			done();
+		} );
 }
 
 /**
  * Set production mode during the build process
  *
+ * @since 0.1.0
+ *
  * @param done
  */
-function setProductionMode(done) {
-	PRODUCTION = false;
-	webpackConfig.mode = 'production';
-	webpackConfig.devtool = false;
+const setProductionMode = ( done ) => {
+	if ( PRODUCTION ) {
+		config.webpack.mode    = 'production';
+		config.webpack.devtool = false;
+	}
 
-	sassConfig.production = true;
 	done();
+}
+
+
+/**
+ * Cleanup our javascript and css folder.
+ */
+const clean = ( done ) => {
+	fs.remove( 'js', done );
+	fs.remove( 'css', done );
+}
+
+/**
+ * Watch for changes to static assets, Sass, and JavaScript.
+ *
+ * @since 0.1.0
+ */
+const watchChanges = () => {
+	watch( config.gulp.javascript.assets ).on(
+		'all',
+		series(
+			javascript
+		)
+	);
+
+	watch( config.gulp.sass.assets ).on(
+		'all',
+		series(
+			buildSass
+		)
+	);
+}
+
+// In production, the CSS is compressed
+const buildSass = () => {
+
+	return src( config.gulp.sass.assets )
+		.pipe( sourcemaps.init() )
+		.pipe( sass( {
+			includePaths: config.gulp.sass.libraries
+		} )
+		.on( 'error', sass.logError ) )
+		.pipe( postcss( [ autoprefixer() ] ) )
+		.pipe( gulpif( PRODUCTION, cleancss({ compatibility: config.gulp.sass.compatibility } ) ) )   // Minify CSS in production, don't worry about IE11 and below.
+		.pipe( gulpif( ! PRODUCTION, sourcemaps.write( '.' ) ) ) // Write our sourcemaps if not in production.
+		.pipe( dest( config.gulp.sass.dest ) );
+}
+
+/**
+ * Build our javascript
+ *
+ * @returns {*}
+ */
+const javascript = () => {
+	return src( config.webpack.entry.core, { sourcemaps: PRODUCTION } )
+		.pipe( webpack( config.webpack ) )
+		.pipe(
+			gulpif(
+				PRODUCTION,
+				uglify().on( 'error', e => {
+					log( e );
+				} )
+			) )
+		.pipe( dest( config.gulp.javascript.dest ) );
 }
 
 // Build the "dist" folder by running the tasks below
 // Sass must be run later so UnCSS can search for used classes in the others assets.
-gulp.task('build:production',
-	gulp.series(setProductionMode, clean, javascript, buildSass));
+task(
+	'build:production',
+	series(
+		loadConfig,
+		clean,
+		javascript,
+		buildSass
+	)
+);
 
-// Build the site and watch for file changes
-gulp.task('default',
-	gulp.series(clean, javascript, buildSass, gulp.parallel(watch)));
-
-// This happens every time a build starts
-function clean(done) {
-	rimraf('css', done);
-	rimraf('js', done);
-}
-
-// Copy files out of the assets folder
-// This task skips over the "img", "js", and "scss" folders, which are parsed separately
-function copy() {
-	return gulp.src(PATHS.assets)
-		.pipe(gulp.dest('other/assets'));
-}
-
-// In production, the CSS is compressed
-function buildSass() {
-
-	const postCssPlugins = [
-		// Autoprefixer
-		autoprefixer(),
-
-		// UnCSS - Uncomment to remove unused styles in production
-		// PRODUCTION && uncss.postcssPlugin(UNCSS_OPTIONS),
-	].filter(Boolean);
-
-	return gulp.src('assets/scss/*.scss')
-		.pipe($.sourcemaps.init())
-		.pipe(sass({
-			includePaths: PATHS.sass
-		})
-			.on('error', sass.logError))
-		.pipe($.postcss(postCssPlugins))
-		.pipe($.if(sassConfig.production, $.cleanCss({ compatibility: 'ie11' })))
-		.pipe($.if(!sassConfig.production, $.sourcemaps.write()))
-		.pipe(gulp.dest('css'));
-}
-
-// In production, the file is minified
-function javascript() {
-	return gulp.src(PATHS.entries)
-		.pipe(named())
-		.pipe($.sourcemaps.init())
-		.pipe(webpackStream(webpackConfig, webpack2))
-		.pipe($.if(PRODUCTION, $.uglify()
-			.on('error', e => { console.log(e); })
-		))
-		.pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-		.pipe(gulp.dest('js'));
-}
-
-// Watch for changes to static assets, Sass, and JavaScript
-function watch() {
-	// gulp.watch(PATHS.assets, copy);
-	gulp.watch('assets/scss/**/*.scss').on('all', gulp.series(buildSass));
-	gulp.watch('assets/js/**/*.js').on('all', gulp.series(javascript));
-}
+// Build the site and watch for file changes.
+task(
+	'default',
+	series(
+		loadConfig,
+		clean,
+		javascript,
+		buildSass,
+		parallel(
+			watchChanges
+		)
+	)
+);

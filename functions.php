@@ -4,7 +4,7 @@
  */
 
 // Useful global constants
-define( 'BOX_OF_SCRAPS_VERSION', '1.0.1' );
+define( 'BOX_OF_SCRAPS_VERSION', '1.5.0' );
 define( 'BOX_OF_SCRAPS_FILE', get_stylesheet() );
 define( 'BOX_OF_SCRAPS_NAME', esc_html__( 'Box of Scraps', 'box-of-scraps' ) );
 define( 'BOX_OF_SCRAPS_URL', get_stylesheet_directory_uri() );
