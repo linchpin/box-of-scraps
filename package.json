@@ -49,7 +49,7 @@
     "email": "devops@linchpin.com"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=v16.17.0"
   },
   "browserslist": [
     "defaults",
