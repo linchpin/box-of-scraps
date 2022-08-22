@@ -46,10 +46,8 @@ jobs:
 
       - name: Clean Build Files/Folders
         run : |
-          chmod +x ./.deployment/cleanup.php
           chmod +x ./.deployment/cleanup.sh
           sh ./.deployment/cleanup.sh;
-          php ./.deployment/cleanup.php;
 
       - name: Create Sync Zip
         run: |
