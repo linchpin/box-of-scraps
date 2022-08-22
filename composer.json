@@ -34,5 +34,10 @@
     "psr-4": {
       "BoxOfScraps\\": "includes/"
     }
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   }
 }
