@@ -2,7 +2,7 @@
 
 set -eo
 
-TMP_DIR="$GITHUB_WORKSPACE/elite-data"
+TMP_DIR="$GITHUB_WORKSPACE/box-of-scraps"
 mkdir "$TMP_DIR"
 
 # If there's no .gitattributes file, write a default one into place
