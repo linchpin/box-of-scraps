@@ -9,12 +9,10 @@
   },
   "author": "Linchpin <sayhi@linchpin.com>",
   "license": "GPL-2.0-or-later",
-  "dependencies": {
-    "browserslist": "^4.21.3",
-    "bulma-scss": "0.9.4",
-    "fs-extra": "^10.1.0"
-  },
   "devDependencies": {
+    "bulma-scss": "0.9.4",
+    "browserslist": "^4.21.3",
+    "fs-extra": "^10.1.0",
     "@babel/core": "7.18.10",
     "@babel/preset-env": "7.18.10",
     "@babel/register": "7.18.9",

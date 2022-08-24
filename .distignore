@@ -19,7 +19,6 @@ gulp-tasks
 phpunit.xml
 phpcs.xml
 phpdoc.dist.xml
-SECURITY.md
 yarn.lock
 yarn-error.log
 webpack.config.babel.js
@@ -32,6 +31,7 @@ webpack.config.babel.js
 /README.md
 bower_components
 /node_modules
+/vendor
 atlassian-ide-plugin.xml
 gulpfile.js
 gulpfile.babel.js
@@ -42,6 +42,5 @@ DOCKER_ENV
 docker_tag
 config.yml
 renovate.json
-updatekey
 .husky
 commitlint.config.cjs

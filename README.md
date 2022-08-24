@@ -2,7 +2,7 @@
 
 Box of scraps is a WordPress theme scaffold used when building sites @ [Linchpin](https://linchpin.com). While it can be used as a stand alone, the team typically utilizes with [deploy-scaffold](https://github.com/linchpin/deploy-scaffold)
 
-## Latest Release [1.5.0] - 08-20-2022
+## Latest Release [1.1.1] - 08-24-2022
 
 
 ![Linchpin](https://github.com/linchpin/brand-assets/raw/master/box-of-scraps.gif)
