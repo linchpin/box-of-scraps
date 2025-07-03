@@ -48,7 +48,7 @@
     "email": "devops@linchpin.com"
   },
   "engines": {
-    "node": ">=v16.17.0"
+    "node": ">=16.20.2"
   },
   "browserslist": [
     "defaults",
